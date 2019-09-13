@@ -1,3 +1,7 @@
+### Problems
+
+##### 1. [(Difficulty: 2) Find intersection of two sorted array of integers.](sortedArrayIntersection/main.java) Time Complexity:
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
