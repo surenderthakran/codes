@@ -1,6 +1,8 @@
 ### Problems
 
-##### 1. [(Difficulty: 2) Find intersection of two sorted array of integers.](sortedArrayIntersection/main.java) Time Complexity:
+##### 1. [(Difficulty: 2) Find intersection of two sorted array of integers.](sortedArrayIntersection/main.java) Time Complexity: O(n)
+
+
 
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
