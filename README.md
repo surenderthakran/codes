@@ -1,3 +1,7 @@
+### Algorithms
+
+##### 1. (Difficulty: 3) [Merge Sort](mergeSort/main.java) Time Complexity: `O(n log(n))`
+
 ### Problems
 
 ##### 1. (Difficulty: 2) [Find intersection of two sorted array of integers.](sortedArrayIntersection/main.java) Time Complexity: `O(n)`
