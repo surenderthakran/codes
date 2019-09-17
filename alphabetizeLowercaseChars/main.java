@@ -29,6 +29,7 @@ class Main {
 
     // Time complexity: O(n log(n))
     lowercaseChars.sort(null);
+    // Or use something like MergeSort which also operates with a time complexity of O(n log(n)).
 
     StringBuilder strBuilder = new StringBuilder(str);
     int j = 0;
