@@ -23,10 +23,15 @@ class Main {
   }
 
   static int[] getIntersection(int[] one, int[] two) {
+    // Counters for both the arrays.
     int i = 0, j = 0;
     List<Integer> result = new ArrayList<>();;
 
+    // Iterate while neither of the two arrays have been fully read.
     while (i < one.length && j < two.length) {
+
+      // If the elements at both arrays' head is equal, move it to the result set and increment both
+      // counters.
       if (one[i] == two[j]) {
         result.add(one[i]);
         i++;
