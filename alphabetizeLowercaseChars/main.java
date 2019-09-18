@@ -13,6 +13,8 @@ class Main {
 
     if (assertEnabled) {
       assert alphabetizeLowercaseChars("Google Mail").equals("Gaegil Mloo");
+
+      System.out.println("All Assertions Succeeded!");
     } else {
       System.out.println("Asserions not enabled! Results not verified!");
     }

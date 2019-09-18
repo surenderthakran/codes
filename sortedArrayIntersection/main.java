@@ -15,6 +15,8 @@ class Main {
       assert Arrays.equals(
           getIntersection(new int[]{1, 2, 3, 4, 5}, new int[]{3, 4, 5, 6, 7}),
           new int[]{3, 4, 5});
+
+      System.out.println("All Assertions Succeeded!");
     } else {
       System.out.println("Asserions not enabled! Results not verified!");
     }
