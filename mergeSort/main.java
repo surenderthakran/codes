@@ -27,22 +27,28 @@ class Main {
     }
   }
 
+  /**
+   * Splits the given array between the given bounds recursively until each split's size is 1 and
+   * then merges them into sorted arrays.
+   * The number of splits needed until we reach sub-array size 1 is `log(n)`.
+   */
   static void mergeSort(int[] nums, int left, int right) {
     if (nums.length == 0) return;
 
-    if (left < right) {
-      // The number of splits needed until we reach sub-array size 1 is `n log(n)`.
-      int mid = (left + right) / 2;
+    int mid = (left + right) / 2;
 
-      // Recursively sort the left half.
+    // Recursively sort the left half if it's length is greater than 1.
+    if (left < mid) {
       mergeSort(nums, left, mid);
-
-      // Recursively sort the right half.
-      mergeSort(nums, mid + 1, right);
-
-      // Merge the sorted left and right halves.
-      merge(nums, left, mid, right);
     }
+
+    // Recursively sort the right half if it's length is greater than 1.
+    if (mid + 1 < right) {
+      mergeSort(nums, mid + 1, right);
+    }
+
+    // Merge the sorted left and right halves.
+    merge(nums, left, mid, right);
   }
 
   /**
@@ -53,7 +59,6 @@ class Main {
     // Create temporary arrays to hold left and right halves.
     int[] tmpLeft = new int[mid - left + 1];
     int[] tmpRight = new int[right - mid];
-
     for (int i = left; i <= mid; i++) {
       tmpLeft[i - left] = nums[i];
     }
@@ -67,7 +72,7 @@ class Main {
 
     // While neither of the two temporary arrays have been fully read.
     while (tmpL < tmpLeft.length && tmpR < tmpRight.length) {
-      // Move the smaller of the two elements at the head of left and right temporray arrays to the
+      // Move the smaller of the two elements at the head of left and right temporary arrays to the
       // main array.
       if (tmpLeft[tmpL] <= tmpRight[tmpR]) {
         nums[left] = tmpLeft[tmpL];

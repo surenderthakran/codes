@@ -25,7 +25,7 @@ class Main {
   static int[] getIntersection(int[] one, int[] two) {
     // Counters for both the arrays.
     int i = 0, j = 0;
-    List<Integer> result = new ArrayList<>();;
+    List<Integer> result = new ArrayList<>();
 
     // Iterate while neither of the two arrays have been fully read.
     while (i < one.length && j < two.length) {
