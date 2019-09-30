@@ -17,7 +17,7 @@ class Main {
     assert assertEnabled = true;
 
     if (assertEnabled) {
-      int[] nums = new int[]{1, 9, 2, -8, 3, 7, -4, 6, -5};
+      int[] nums = {1, 9, 2, -8, 3, 7, -4, 6, -5};
       mergeSort(nums, 0, nums.length - 1);
       assert Arrays.equals(nums, new int[]{-8, -5, -4, 1, 2, 3, 6, 7, 9});
 
