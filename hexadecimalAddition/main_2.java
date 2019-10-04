@@ -2,6 +2,7 @@
  * Given two hexadecimal strings, return their sum in hexadecimal format.
  */
 
+import java.lang.Math;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,8 +26,22 @@ class Main {
   }
 
   private static int hexadecimalToDecimal(String hex) {
-    hex = hex.toLowerCase();
+    hex = hex.toUpperCase();
+    int decimal = 0;
+    for (int i = 0; i < hex.length(); i++) {
+      char c = hex.charAt(hex.length() - 1 - i);
+      int charValue = (int) c;
+      if (charValue >= 65 && charValue <= 90) {
+        charValue = charValue - 55;
+      } else {
+        charValue = Integer.parseInt(String.valueOf(c));
+      }
+      decimal += charValue * Math.pow(16, i);
+    }
+    return decimal;
   }
 
-  private static String decimalToHexadecimal(int decimal) {}
+  private static String decimalToHexadecimal(int decimal) {
+    return "00";
+  }
 }
