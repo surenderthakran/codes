@@ -7,9 +7,7 @@ import java.util.List;
 
 class Main {
 
-  private static final List<Character> hexadecimals =
-      Arrays.asList(
-          new Character[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'});
+  private static final String hexadecimals = "0123456789abcdef";
 
   public static void main(String[] args) {
     boolean assertEnabled = false;
@@ -26,24 +24,27 @@ class Main {
   }
 
   private static String hexadecimalAddition(String one, String two) {
-    StringBuilder oneBuilder = new StringBuilder(one.toLowerCase());
-    StringBuilder twoBuilder = new StringBuilder(two.toLowerCase());
+    one = one.toLowerCase();
+    two = two.toLowerCase();
     StringBuilder result = new StringBuilder();
 
+    int onesLsbIndex = one.length() - 1;
+    int twosLsbIndex = two.length() - 1;
+
     char carry = '0';
-    while (oneBuilder.length() > 0 || twoBuilder.length() > 0) {
+    while (onesLsbIndex >= 0 || twosLsbIndex >= 0) {
       // Fetch least significant number from first hexadecimal string.
       char first = '0';
-      if (oneBuilder.length() > 0) {
-        first = oneBuilder.charAt(oneBuilder.length() - 1);
-        oneBuilder.deleteCharAt(oneBuilder.length() - 1);
+      if (onesLsbIndex >= 0) {
+        first = one.charAt(onesLsbIndex);
+        onesLsbIndex--;
       }
 
       // Fetch least significant number for second hexadecimal string.
       char second = '0';
-      if (twoBuilder.length() > 0) {
-        second = twoBuilder.charAt(twoBuilder.length() - 1);
-        twoBuilder.deleteCharAt(twoBuilder.length() - 1);
+      if (twosLsbIndex >= 0) {
+        second = two.charAt(twosLsbIndex);
+        twosLsbIndex--;
       }
 
       String sum = addSingleDigitHexaNumbers(carry, first, second);
@@ -79,6 +80,6 @@ class Main {
       hexCarry++;
     }
 
-    return hexCarry + hexadecimals.get(decimalSum).toString();
+    return hexCarry + String.valueOf(hexadecimals.charAt(decimalSum));
   }
 }
