@@ -1,5 +1,7 @@
 /**
  * Given two hexadecimal strings, return their sum in hexadecimal format.
+ *
+ * Method: Adding least significant numbers one by one.
  */
 
 import java.util.Arrays;
@@ -7,7 +9,7 @@ import java.util.List;
 
 class Main {
 
-  private static final String hexadecimals = "0123456789abcdef";
+  private static final String HEXADECIMAL_CHARS = "0123456789abcdef";
 
   public static void main(String[] args) {
     boolean assertEnabled = false;
@@ -67,7 +69,8 @@ class Main {
   private static String addSingleDigitHexaNumbers(char carry, char first, char second) {
     // Calculate decimal sum of all three hexadecimal characters.
     int decimalSum =
-        hexadecimals.indexOf(carry) + hexadecimals.indexOf(first) + hexadecimals.indexOf(second);
+        HEXADECIMAL_CHARS.indexOf(carry) + HEXADECIMAL_CHARS.indexOf(first)
+        + HEXADECIMAL_CHARS.indexOf(second);
 
     // Initialize hexadecimal carry value to 0.
     // Note: We could have initialized it to character type '0' as well but since we know that the
@@ -80,6 +83,6 @@ class Main {
       hexCarry++;
     }
 
-    return hexCarry + String.valueOf(hexadecimals.charAt(decimalSum));
+    return hexCarry + String.valueOf(HEXADECIMAL_CHARS.charAt(decimalSum));
   }
 }

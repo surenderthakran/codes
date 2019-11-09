@@ -1,5 +1,7 @@
 /**
  * Given two hexadecimal strings, return their sum in hexadecimal format.
+ *
+ * Method: Convert to decimals -> add decimals -> convert to hexadecimal.
  */
 
 import java.lang.Math;
@@ -7,6 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 
 class Main {
+
+  private static final String HEXADECIMAL_CHARS = "0123456789abcdef";
+
   public static void main(String[] args) {
     boolean assertEnabled = false;
     assert assertEnabled = true;
@@ -42,6 +47,12 @@ class Main {
   }
 
   private static String decimalToHexadecimal(int decimal) {
-    return "00";
+    String hexadecimal = "";
+    while (decimal > 0) {
+      int remainder = decimal % 16;
+      decimal /= 16;
+      hexadecimal = HEXADECIMAL_CHARS.charAt(remainder) + hexadecimal;
+    }
+    return hexadecimal;
   }
 }
