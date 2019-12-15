@@ -7,4 +7,8 @@
 ##### 1. (Difficulty: 2) [Find intersection of two sorted array of integers.](sortedArrayIntersection/main.java) Time Complexity: `O(n)`
 ##### 2. (Difficulty: 3) [Alphabetize (sort alphabetically) lowercase characters in a given string.](alphabetizeLowercaseChars/main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 2) [Given two arrays of keypresses, determine if they output same printable string.](compareKeypressArrays/main.java) Time Complexity: `O(n)`
-##### 4. (Difficulty: 2) [Hexadecimal string addition.](hexadecimalAddition/main.java) Time Complexity:
+##### 4. (Difficulty: 2) [Hexadecimal string addition.](hexadecimalAddition/main.java) Time Complexity: `O(n)`
+
+### Design
+
+##### 1. (Difficulty: ) [Design class with insert, random peek and random delete capabilities.](classWithInsertRandomPeekAndDeleteCapabilities/main.java)
