@@ -4,9 +4,6 @@
  * Method: Adding least significant numbers one by one.
  */
 
-import java.util.Arrays;
-import java.util.List;
-
 class Main {
 
   private static final String HEXADECIMAL_CHARS = "0123456789abcdef";
