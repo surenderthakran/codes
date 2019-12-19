@@ -4,6 +4,9 @@
  * 1. Add marbles to jar.
  * 2. Randomly take a marble from the jar, identify its color and put it back in the jar.
  * 3. Randomly take a marble from the jar and identify its color.
+ *
+ * Solution is to use a List data structure to hold marbles iin the jar.
+ * For fetching random marbles, we use java.util's Random class.
  */
 
 import java.util.ArrayList;
@@ -84,52 +87,12 @@ class Main {
     System.out.println("Jar size: " + jar.getSize());
     System.out.println(Arrays.toString(jar.getMarbleColours()));
 
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
+    for (int i = 0; i < 5; i++) {
+      System.out.println(jar.peekRandomMarble().getColour());
+      System.out.println(jar.removeRandomMarble().getColour());
 
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
-
-    System.out.println(jar.peekRandomMarble().getColour());
-    System.out.println(jar.removeRandomMarble().getColour());
-
-    System.out.println("Jar size: " + jar.getSize());
-    System.out.println(Arrays.toString(jar.getMarbleColours()));
+      System.out.println("Jar size: " + jar.getSize());
+      System.out.println(Arrays.toString(jar.getMarbleColours()));
+    }
   }
 }
