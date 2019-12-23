@@ -2,6 +2,10 @@
 
 ##### 1. (Difficulty: 3) [Merge Sort](mergeSort/main.java) Time Complexity: `O(n log(n))`
 
+### Data Structures
+
+##### 1. (Difficulty: 2) [Binary Search Tree](binarySearchTree/main.java)
+
 ### Problems
 
 ##### 1. (Difficulty: 2) [Find intersection of two sorted array of integers.](sortedArrayIntersection/main.java) Time Complexity: `O(n)`
