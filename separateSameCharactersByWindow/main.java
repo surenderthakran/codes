@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 class Main {
   public static void main(String[] args) {
@@ -43,7 +44,7 @@ class Main {
   static Character[] separateCharactersByWindow(char[] inputs, int window) {
     List<Character> response = new ArrayList<>();
 
-    // create map with character frequency.
+    // Create map with character frequency.
     Map<Character, Integer> frequencyMap = new HashMap<>();
     for (char c : inputs) {
       if (frequencyMap.containsKey(c)) {
@@ -53,38 +54,43 @@ class Main {
       frequencyMap.put(c, 1);
     }
 
-    List<Character> charactersAlreadyInWindow = new ArrayList<>();
+    List<Character> charactersAlreadyInCurrentWindow = new ArrayList<>();
 
+    // For each position in the response list.
     for (int i = 0; i < inputs.length; i++) {
-      // identify characters already in the current window.
-      charactersAlreadyInWindow.clear();
+      // Identify characters already in the current window.
+      charactersAlreadyInCurrentWindow.clear();
       for (int j = i - 1; j >= i - (window - 1); j--) {
         if (j < 0) {
           break;
         }
-        charactersAlreadyInWindow.add(response.get(j));
+        charactersAlreadyInCurrentWindow.add(response.get(j));
       }
 
-      // pick a character with highest frequency which is not in current window.
+      // Pick a character with highest frequency which is not in current window.
       Character highestFrequencyCharacter = new Character('\0');
       int currentHighestFrequency = 0;
-      for (Character c : frequencyMap.keySet()) {
-        if (!charactersAlreadyInWindow.contains(c) && frequencyMap.get(c) > currentHighestFrequency) {
-          currentHighestFrequency = frequencyMap.get(c);
-          highestFrequencyCharacter = c;
+      for (Entry<Character, Integer> entry : frequencyMap.entrySet()){
+        if (!charactersAlreadyInCurrentWindow.contains(entry.getKey())
+            && entry.getValue() > currentHighestFrequency) {
+          currentHighestFrequency = entry.getValue();
+          highestFrequencyCharacter = entry.getKey();
         }
       }
 
-      // add selected character to response.
+      // If no character is found, return empty Character array.
       if (highestFrequencyCharacter == '\0') {
         return new Character[0];
       }
+
+      // Add selected character to response.
       response.add(highestFrequencyCharacter);
 
-      // update frequency map to reduce frequency of the selected character by 1.
+      // Update frequency map to reduce frequency of the selected character by 1.
       frequencyMap.put(highestFrequencyCharacter, currentHighestFrequency - 1);
     }
 
+    // Convert List<Character> to Character[] and return.
     return response.stream().toArray(Character[]::new);
   }
 }
