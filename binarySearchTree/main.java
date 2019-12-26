@@ -141,7 +141,46 @@ class BinarySearchTree {
     return inOrderNodes;
   }
 
-  boolean isValidBSTRangeLimitMethod() {}
+  /**
+   * Determines validity of the whole Binary Search Tree using the range limiting method.
+   *
+   * For a valid Binary Search Tree, each node should fall within the limits defined by its parents.
+   * And all nodes in it's left sub-tree should fall between current nodes minimum range value and
+   * current nodes value. Similarly for right sub-tree, all nodes should fall between current nodes
+   * value and current nodes maximum range value.
+   *
+   * @return True if the tree is a valid Binary Search Tree, else false.
+   */
+  boolean isValidBSTRangeLimitMethod() {
+    return isValidBSTRangeLimitMethod(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+  }
+
+  /**
+   * Determines validity of the Binary Search Tree with the given node as root and given min & max
+   * values using the range limiting method.
+   *
+   * @return True if the tree is a valid Binary Search Tree, else false.
+   */
+  boolean isValidBSTRangeLimitMethod(Node node, int min, int max) {
+    // Check if current node is in the range.
+    if (node.getValue() < min || node.getValue() > max) {
+      return false;
+    }
+
+    // Check if the left sub-tree is in range.
+    if (node.getLeft() != null
+        && !isValidBSTRangeLimitMethod(node.getLeft(), min, node.getValue())) {
+      return false;
+    }
+
+    // Check if the right sub-tree is in range.
+    if (node.getRight() != null
+        && !isValidBSTRangeLimitMethod(node.getRight(), node.getValue(), max)) {
+      return false;
+    }
+
+    return true;
+  }
 }
 
 class Main {
@@ -151,6 +190,7 @@ class Main {
 
     if (assertEnabled) {
       createFirstBinaryTreeAndRunAssertions();
+      createSecondBinaryTreeAndRunAssertions();
 
       System.out.println("All Assertions Succeeded!");
     } else {
@@ -191,5 +231,25 @@ class Main {
 
     assert tree.isValidBSTInOrderTraversalMethod() == true;
     assert tree.isValidBSTRangeLimitMethod() == true;
+  }
+
+  static void createSecondBinaryTreeAndRunAssertions() {
+    Node root = new Node(3);
+    BinarySearchTree tree = new BinarySearchTree(root);
+
+    Node node2 = new Node(2);
+    root.setLeft(node2);
+
+    Node node1 = new Node(1);
+    node2.setLeft(node1);
+
+    Node node4 = new Node(4);
+    node2.setRight(node4);
+
+    Node node5 = new Node(5);
+    root.setRight(node5);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == false;
+    assert tree.isValidBSTRangeLimitMethod() == false;
   }
 }
