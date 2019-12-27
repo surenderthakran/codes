@@ -18,7 +18,6 @@
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class Node {
@@ -192,10 +191,72 @@ class Main {
       createFirstBinaryTreeAndRunAssertions();
       createSecondBinaryTreeAndRunAssertions();
 
+      // Create BST from a pre-order list of node values.
+      BinarySearchTree tree = createBSTFromPreOrderArray(new int[]{10, 5, 1, 7, 40, 50});
+      // Assert is tree is a valid Binary Search Tree.
+      assert tree.isValidBSTInOrderTraversalMethod() == true;
+      assert tree.isValidBSTRangeLimitMethod() == true;
+
       System.out.println("All Assertions Succeeded!");
     } else {
       System.out.println("Asserions not enabled! Results not verified!");
     }
+  }
+
+  /**
+   * Returns a Binary Seart Tree created from a given array of node values in pre-order.
+   *
+   * @param preorder Array of node values in pre-order
+   * @return A BinarySearchTree
+   * @throws IllegalArgumentException
+   */
+  static BinarySearchTree createBSTFromPreOrderArray(int[] preorder) {
+    return createBSTFromPreOrderArray(preorder, 0, preorder.length - 1);
+  }
+
+  /**
+   * Returns a Binary Seart Tree created from a given (sub-)array of node values in pre-order.
+   *
+   * @param preorder Array of node values in pre-order
+   * @param first Index of first value in the preorder array.
+   * @param last Index of last value in the preorder array.
+   * @return A BinarySearchTree
+   * @throws IllegalArgumentException
+   */
+  static BinarySearchTree createBSTFromPreOrderArray(int[] preorder, int first, int last) {
+    if (preorder.length == 0) {
+      throw new IllegalArgumentException("Empty preorder array.");
+    }
+
+    // First element in a pre-order array is the root.
+    Node root = new Node(preorder[first]);
+    BinarySearchTree tree = new BinarySearchTree(root);
+
+    // If pre-order array had only one element, we can return here itself.
+    if (first == last) {
+      return tree;
+    }
+
+    // Identify the index from where the elements for the right sub-tree would begin.
+    int rightChildIndex = -1;
+    for (int i = first + 1; i <= last; i++) {
+      if (preorder[i] > preorder[first]) {
+        rightChildIndex = i;
+        break;
+      }
+    }
+
+    // If the sub-array for the left sub-tree values has adequate number of values, create a BST
+    // from them and set it's root as current root's left child.
+    if (first + 1 <= rightChildIndex - 1) {
+      root.setLeft(createBSTFromPreOrderArray(preorder, first + 1, rightChildIndex - 1).getRoot());
+    }
+
+    // Create a BST from the right sub-tree elements in the pre-order array and set it's root as
+    // current root's right child.
+    root.setRight(createBSTFromPreOrderArray(preorder, rightChildIndex, last).getRoot());
+
+    return tree;
   }
 
   static void createFirstBinaryTreeAndRunAssertions() {
