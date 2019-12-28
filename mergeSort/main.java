@@ -18,7 +18,7 @@ class Main {
 
     if (assertEnabled) {
       int[] nums = {1, 9, 2, -8, 3, 7, -4, 6, -5};
-      mergeSort(nums, 0, nums.length - 1);
+      mergeSort(nums);
       assert Arrays.equals(nums, new int[]{-8, -5, -4, 1, 2, 3, 6, 7, 9});
 
       System.out.println("All Assertions Succeeded!");
@@ -27,10 +27,15 @@ class Main {
     }
   }
 
+  static void mergeSort(int[] nums) {
+    mergeSort(nums, 0, nums.length - 1);
+  }
+
   /**
    * Splits the given array between the given bounds recursively until each split's size is 1 and
    * then merges them into sorted arrays.
-   * The number of splits needed until we reach sub-array size 1 is `log(n)`.
+   * The number of times this method is needed to be called for an array of size n until we reach
+   * sub-arrays of size 1 is `log(n)`.
    */
   static void mergeSort(int[] nums, int left, int right) {
     if (nums.length == 0) return;
@@ -48,14 +53,21 @@ class Main {
     }
 
     // Merge the sorted left and right halves.
-    merge(nums, left, mid, right);
+    mergeSortedSubArrays(nums, left, mid, right);
   }
 
   /**
+   * Merges the left and right sorted sub-arrays in-place.
+   *
    * Merging the two arrays needs us to visit each element in the two arrays atleast once.
    * Hence, it takes O(n) time complexity.
+   *
+   * @param nums Array to be sorted.
+   * @param left Index where the left sorted sub-array begins.
+   * @param mid Index separating the left and right sorted sub-arrays.
+   * @param right Index where the right sorted sub-array ends.
    */
-  static void merge(int[] nums, int left, int mid, int right) {
+  static void mergeSortedSubArrays(int[] nums, int left, int mid, int right) {
     // Create temporary arrays to hold left and right halves.
     int[] tmpLeft = new int[mid - left + 1];
     int[] tmpRight = new int[right - mid];
@@ -63,7 +75,7 @@ class Main {
       tmpLeft[i - left] = nums[i];
     }
     for (int i = mid + 1; i <= right; i++) {
-      tmpRight[i - mid - 1] = nums[i];
+      tmpRight[i - (mid + 1)] = nums[i];
     }
 
     // Counters for left and right temporary arrays.
@@ -77,14 +89,11 @@ class Main {
       if (tmpLeft[tmpL] <= tmpRight[tmpR]) {
         nums[left] = tmpLeft[tmpL];
         tmpL++;
-        left++;
-        continue;
       } else {
         nums[left] = tmpRight[tmpR];
         tmpR++;
-        left++;
-        continue;
       }
+      left++;
     }
 
     // Merge all remaining elements of left array if any.
