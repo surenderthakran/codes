@@ -1,12 +1,16 @@
 /**
  * Merge sorts implements in `O(n log(n))` time complexity in all three cases.
  *
- * For an input array of size n, if we keep splitting it in half until we get sub-arrays of size 1,
- * we will be splitting `log(n)` times.
- * At each split level we merge/combine back ALL the subarrays, so the combined merging time at each
- * level is `O(n)`.
+ * At each recursion level two operations take place:
+ * 1. The recursion input is split in half
+ * 2. The sorted halves are merged back.
  *
- * Hence the total time complexity of merge sort is `O(n log(n))`.
+ * For an input array of size n, if we keep splitting it in half until we get sub-arrays of size 1,
+ * we will be splitting `log2(n)` times.
+ * And at each split level we merge/combine back ALL the elements of subarrays which would need visiting each element once.
+ * Hence at each level we visit n elements.
+ *
+ * Hence the total time complexity of merge sort is `O(n) * O(log(n)) = O(n log(n))`.
  */
 
 import java.util.Arrays;
