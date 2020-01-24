@@ -53,6 +53,10 @@ class Node {
 class BinarySearchTree {
   private Node root;
 
+  BinarySearchTree() {
+    this.root = null;
+  }
+
   BinarySearchTree(Node root) {
     this.root = root;
   }
@@ -80,6 +84,37 @@ class BinarySearchTree {
         continue;
       } else {
         return false;
+      }
+    }
+  }
+
+  void insert(int num) {
+    Node newNode = new Node(num);
+    if (this.root == null) {
+      this.root = newNode;
+      return;
+    }
+
+    Node current = this.root;
+    while (true) {
+      if (num == current.getValue()) {
+        if (current.getLeft() != null) {
+          newNode.setLeft(current.getLeft());
+        }
+        current.setLeft(newNode);
+        return;
+      } else if (num < current.getValue()) {
+        if (current.getLeft() == null) {
+          current.setLeft(newNode);
+          return;
+        }
+        current = current.getLeft();
+      } else if (num > current.getValue()) {
+        if (current.getRight() == null) {
+          current.setRight(newNode);
+          return;
+        }
+        current = current.getRight();
       }
     }
   }
@@ -188,8 +223,10 @@ class Main {
     assert assertEnabled = true;
 
     if (assertEnabled) {
-      createFirstBinaryTreeAndRunAssertions();
-      createSecondBinaryTreeAndRunAssertions();
+      testValidBST();
+      testInValidBST();
+
+      testValidBSTCreatedUsingInsertions();
 
       // Create BST from a pre-order list of node values.
       BinarySearchTree tree = createBSTFromPreOrderArray(new int[]{10, 5, 1, 7, 40, 50});
@@ -259,7 +296,7 @@ class Main {
     return tree;
   }
 
-  static void createFirstBinaryTreeAndRunAssertions() {
+  static void testValidBST() {
     Node root = new Node(5);
     BinarySearchTree tree = new BinarySearchTree(root);
 
@@ -294,7 +331,7 @@ class Main {
     assert tree.isValidBSTRangeLimitMethod() == true;
   }
 
-  static void createSecondBinaryTreeAndRunAssertions() {
+  static void testInValidBST() {
     Node root = new Node(3);
     BinarySearchTree tree = new BinarySearchTree(root);
 
@@ -312,5 +349,16 @@ class Main {
 
     assert tree.isValidBSTInOrderTraversalMethod() == false;
     assert tree.isValidBSTRangeLimitMethod() == false;
+  }
+
+  static void testValidBSTCreatedUsingInsertions() {
+    BinarySearchTree tree = new BinarySearchTree();
+    tree.insert(10);
+    tree.insert(5);
+    tree.insert(15);
+
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
   }
 }
