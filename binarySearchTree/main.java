@@ -194,15 +194,15 @@ class BinarySearchTree {
    * @return True if the tree is a valid Binary Search Tree, else false.
    */
   boolean isValidBSTInOrderTraversalMethod() {
-    List<Node> inOrderNodes = getNodesInOrder();
-    if (inOrderNodes.size() == 0) {
+    Optional<List<Node>> inOrderNodes = getNodesInOrder();
+    if (!inOrderNodes.isPresent()) {
       return false;
     }
 
     Node lastNode = null;
 
     // Check if in-order list of nodes is sorted.
-    for (Node node : inOrderNodes) {
+    for (Node node : inOrderNodes.get()) {
       if (lastNode != null && lastNode.getValue() > node.getValue()) {
         return false;
       }
@@ -213,11 +213,11 @@ class BinarySearchTree {
   }
 
   /**
-   * Returns an in-order  List of all nodes of the tree.
+   * Returns an in-order List of all nodes of the tree.
    */
-  List<Node> getNodesInOrder() {
+  Optional<List<Node>> getNodesInOrder() {
     if (!this.root.isPresent()) {
-      return new ArrayList<>();
+      return Optional.empty();
     }
     return getNodesInOrder(this.root.get());
   }
@@ -228,12 +228,12 @@ class BinarySearchTree {
    * @param node Root node of the current (sub-)tree.
    * @return In-order list of nodes.
    */
-  List<Node> getNodesInOrder(Node node) {
+  Optional<List<Node>> getNodesInOrder(Node node) {
     List<Node> inOrderNodes = new ArrayList<>();
 
     // Add nodes from left sub-tree.
     if (node.getLeft().isPresent()) {
-      inOrderNodes.addAll(getNodesInOrder(node.getLeft().get()));
+      inOrderNodes.addAll(getNodesInOrder(node.getLeft().get()).get());
     }
 
     // Add current node.
@@ -241,10 +241,10 @@ class BinarySearchTree {
 
     // Add nodes from right sub-tree.
     if (node.getRight().isPresent()) {
-      inOrderNodes.addAll(getNodesInOrder(node.getRight().get()));
+      inOrderNodes.addAll(getNodesInOrder(node.getRight().get()).get());
     }
 
-    return inOrderNodes;
+    return Optional.of(inOrderNodes);
   }
 
   /**
