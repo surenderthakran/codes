@@ -153,28 +153,38 @@ class BinarySearchTree {
     }
   }
 
+  /**
+   * Inserts new node in the tree.
+   *
+   * A new node is always inserted at the leaf except when a same valued node already exists.
+   *
+   * @param num New node's value.
+   */
   void insert(int num) {
     Node newNode = new Node(num);
+
+    // If tree is empty, add new node as root.
     if (!this.root.isPresent()) {
       this.root = Optional.of(newNode);
       return;
     }
 
     Node current = this.root.get();
+    // Iterate the tree to find the correct position for the new node.
     while (true) {
-      if (num == current.getValue()) {
+      if (num == current.getValue()) {         // If new value is equal to current node's value.
         if (current.getLeft().isPresent()) {
           newNode.setLeft(current.getLeft().get());
         }
         current.setLeft(newNode);
         return;
-      } else if (num < current.getValue()) {
+      } else if (num < current.getValue()) {   // If new value is less than current node's value.
         if (!current.getLeft().isPresent()) {
           current.setLeft(newNode);
           return;
         }
         current = current.getLeft().get();
-      } else if (num > current.getValue()) {
+      } else if (num > current.getValue()) {   // If new value is greater than current node's value.
         if (!current.getRight().isPresent()) {
           current.setRight(newNode);
           return;
