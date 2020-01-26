@@ -18,6 +18,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,10 @@ class Node {
 
   int getValue() {
     return this.value;
+  }
+
+  void setValue(int num) {
+    this.value = num;
   }
 
   Optional<Node> getLeft() {
@@ -360,6 +365,17 @@ class Main {
 
     assert tree.isValidBSTInOrderTraversalMethod() == true;
     assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+
+    tree.delete(5);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{1, 2, 3, 4, 6, 7, 8, 9});
   }
 
   static void testInValidBST() {
