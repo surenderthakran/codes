@@ -46,7 +46,7 @@ class Node {
   }
 
   void setLeft(Node node) {
-    this.leftChild = Optional.of(node);
+    this.leftChild = Optional.ofNullable(node);
   }
 
   Optional<Node> getRight() {
@@ -54,7 +54,7 @@ class Node {
   }
 
   void setRight(Node node) {
-    this.rightChild = Optional.of(node);
+    this.rightChild = Optional.ofNullable(node);
   }
 }
 
@@ -200,6 +200,86 @@ class BinarySearchTree {
   }
 
   /**
+   * Deletes a node with the given value from the whole tree.
+   *
+   * @param num Value of the node to be deleted.
+   */
+  void delete(int num) {
+    if (!this.root.isPresent()) {
+      throw new IllegalArgumentException(String.format("%d does not exists in the tree.", num));
+    }
+
+    this.root = Optional.ofNullable(delete(num, this.root.get()));
+  }
+
+  /**
+   * Deletes a node with the given value in the sub-tree under the given node.
+   *
+   * To delete a node with no children, we simply return a null to the parent recursion so that it
+   * gets set as the current sub-tree's reference and the reference to the node is lost.
+   * To delete a node with one child, we promote the sole child to it's parent's position by
+   * returning the child's reference to the parent recursion.
+   * To delete a node with two children, we find the in-order successor (i.e. smallest node in the
+   * right sub-tree) of the node and replace the current node with the successor. An in-order
+   * predecessor (i.e. largest node in the left sub-tree) could also be used as the replacement
+   * candidate.
+   *
+   * @param num Value of the node to be deleted.
+   * @param current Root of the sub-tree from which the node is to be deleted.
+   * @return Returns the latest root of the sub-tree after the node is deleted.
+   */
+  Node delete(int num, Node current) {
+    if (num == current.getValue()) {
+      // If the node to be deleted has both left and right children.
+      if (current.getLeft().isPresent() && current.getRight().isPresent()) {
+        // Find the in-order successor of the current node.
+        Node inOrderSuccessor = getSmallestNodeInTree(current.getRight().get());
+        // Set the succesor's value as current node's value.
+        current.setValue(inOrderSuccessor.getValue());
+        // Delete the successor from the right sub-tree and set the updated sub-tree as the new
+        // right child of the current node.
+        current.setRight(delete(inOrderSuccessor.getValue(), current.getRight().get()));
+        return current;
+      } else if (current.getLeft().isPresent()) {   // If node to be deleted has only left child.
+        // Return the left child so that reference to the current node is replaced with a refernce
+        // to the left child.
+        return current.getLeft().get();
+      } else if (current.getRight().isPresent()) {  // If node to be deleted has only right child.
+        // Return the right child so that reference to the current node is replaced with a refernce
+        // to the right child.
+        return current.getRight().get();
+      } else {
+        // If the node to be deleted has no child, we simply return null so that reference to the
+        // current node is replaced with null.
+        return null;
+      }
+    } else if (num < current.getValue() && current.getLeft().isPresent()) {
+      // Search and delete the node from the left sub-tree and set it's (potentially) new root as
+      // current node's left child.
+      current.setLeft(delete(num, current.getLeft().get()));
+      return current;
+    } else if (num > current.getValue() && current.getRight().isPresent()) {
+      // Search and delete the node from the right sub-tree and set it's (potentially) new root as
+      // current node's right child.
+      current.setRight(delete(num, current.getRight().get()));
+      return current;
+    } else {
+      throw new IllegalArgumentException(String.format("%d does not exists in the tree.", num));
+    }
+  }
+
+  /**
+   * Returns the smallest node in the given node's tree.
+   */
+  Node getSmallestNodeInTree(Node current) {
+    Node smallestNode = current;
+    while (smallestNode.getLeft().isPresent()) {
+      smallestNode = smallestNode.getLeft().get();
+    }
+    return smallestNode;
+  }
+
+  /**
    * Determines validity of the Binary Search Tree using the in-order traversal method.
    *
    * For a valid Binary Search Tree, in-order traversal should mean a sorted traversal. In this
@@ -330,6 +410,13 @@ class Main {
 
     assert tree.isValidBSTInOrderTraversalMethod() == false;
     assert tree.isValidBSTRangeLimitMethod() == false;
+
+    tree.insert(5);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
+
+    tree.delete(5);
   }
 
   static void testValidBST() {
@@ -369,6 +456,7 @@ class Main {
         tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
         new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
 
+    // Delete root node.
     tree.delete(5);
 
     assert tree.isValidBSTInOrderTraversalMethod() == true;
@@ -376,6 +464,33 @@ class Main {
     assert Arrays.equals(
         tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
         new Integer[]{1, 2, 3, 4, 6, 7, 8, 9});
+
+    // Delete leaf node.
+    tree.delete(1);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{2, 3, 4, 6, 7, 8, 9});
+
+    // Delete two child node.
+    tree.delete(3);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{2, 4, 6, 7, 8, 9});
+
+    // Delete single child node.
+    tree.delete(4);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{2, 6, 7, 8, 9});
   }
 
   static void testInValidBST() {
@@ -407,6 +522,18 @@ class Main {
 
     assert tree.isValidBSTInOrderTraversalMethod() == true;
     assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{5, 5, 10, 15});
+
+    // Delete duplicate node.
+    tree.delete(5);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == true;
+    assert tree.isValidBSTRangeLimitMethod() == true;
+    assert Arrays.equals(
+        tree.getNodesInOrder().get().stream().map(Node::getValue).toArray(Integer[]::new),
+        new Integer[]{5, 10, 15});
   }
 
   static void testValidBSTCreatedFromPreOrderArray() {
