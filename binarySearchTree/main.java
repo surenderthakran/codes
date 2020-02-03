@@ -123,10 +123,14 @@ class BinarySearchTree {
           createBSTFromPreOrderArray(preorder, first + 1, rightChildIndex - 1).getRoot().get());
     }
 
-    // Create a BST from the right sub-tree elements in the pre-order array and set it's root as
-    // current root's right child.
-    root.setRight(
-        createBSTFromPreOrderArray(preorder, rightChildIndex, last).getRoot().get());
+    // Only if right child index is found, it means that there are nodes for the right sub-tree.
+    // Else the tree only has left sub-tree.
+    if (rightChildIndex != -1) {
+      // Create a BST from the right sub-tree elements in the pre-order array and set it's root as
+      // current root's right child.
+      root.setRight(
+          createBSTFromPreOrderArray(preorder, rightChildIndex, last).getRoot().get());
+    }
 
     return tree;
   }
@@ -161,7 +165,9 @@ class BinarySearchTree {
   /**
    * Inserts new node in the tree.
    *
-   * A new node is always inserted at the leaf except when a same valued node already exists.
+   * A new node is always inserted at the leaf except when a same valued node already exists. In
+   * which case, we insert the new node as either left or right child of the existing same valued
+   * node.
    *
    * @param num New node's value.
    */
@@ -189,12 +195,14 @@ class BinarySearchTree {
           return;
         }
         current = current.getLeft().get();
+        continue;
       } else if (num > current.getValue()) {   // If new value is greater than current node's value.
         if (!current.getRight().isPresent()) {
           current.setRight(newNode);
           return;
         }
         current = current.getRight().get();
+        continue;
       }
     }
   }
@@ -417,6 +425,9 @@ class Main {
     assert tree.isValidBSTRangeLimitMethod() == true;
 
     tree.delete(5);
+
+    assert tree.isValidBSTInOrderTraversalMethod() == false;
+    assert tree.isValidBSTRangeLimitMethod() == false;
   }
 
   static void testValidBST() {
@@ -537,11 +548,22 @@ class Main {
   }
 
   static void testValidBSTCreatedFromPreOrderArray() {
-    // Create BST from a pre-order array of node values.
-    BinarySearchTree tree =
+    BinarySearchTree tree1 =
         BinarySearchTree.createBSTFromPreOrderArray(new int[]{10, 5, 1, 7, 40, 50});
 
-    assert tree.isValidBSTInOrderTraversalMethod() == true;
-    assert tree.isValidBSTRangeLimitMethod() == true;
+    assert tree1.isValidBSTInOrderTraversalMethod() == true;
+    assert tree1.isValidBSTRangeLimitMethod() == true;
+
+    BinarySearchTree tree2 =
+        BinarySearchTree.createBSTFromPreOrderArray(new int[]{10, 5, 1, 7});
+
+    assert tree2.isValidBSTInOrderTraversalMethod() == true;
+    assert tree2.isValidBSTRangeLimitMethod() == true;
+
+    BinarySearchTree tree3 =
+        BinarySearchTree.createBSTFromPreOrderArray(new int[]{10, 40, 50});
+
+    assert tree3.isValidBSTInOrderTraversalMethod() == true;
+    assert tree3.isValidBSTRangeLimitMethod() == true;
   }
 }
