@@ -31,22 +31,15 @@ class Main {
     while (i < one.length && j < two.length) {
 
       // If the elements at both arrays' head is equal, move it to the result set and increment both
-      // counters.
+      // counters else increment the counter with the smaller value.
       if (one[i] == two[j]) {
         result.add(one[i]);
         i++;
         j++;
-        continue;
-      }
-
-      if (one[i] < two[j]) {
+      } else if (one[i] < two[j]) {
         i++;
-        continue;
-      }
-
-      if (one[i] > two[j]) {
+      } else if (one[i] > two[j]) {
         j++;
-        continue;
       }
     }
 
