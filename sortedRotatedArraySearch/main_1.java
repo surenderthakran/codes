@@ -21,6 +21,8 @@ class Main {
       assert indexOf(5, new int[]{2, 3, 5, 6, 7, 8, 9, 10, 1}) == 2;
       assert indexOf(5, new int[]{10, 1, 2, 3, 5, 6, 7, 8, 9}) == 4;
       assert indexOf(10, new int[]{30, 40, 50, 10, 20}) == 3;
+      assert indexOf(0, new int[]{2, 2, 2, 2, 2, 2, 2, 2, 0, 2}) == 8;
+      assert indexOf(0, new int[]{2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}) == 1;
 
       System.out.println("All Assertions Succeeded!");
     } else {
