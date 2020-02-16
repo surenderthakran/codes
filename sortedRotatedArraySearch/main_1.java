@@ -32,6 +32,12 @@ class Main {
   }
 
   static int indexOf(int num, int[] arr) {
+    // If array is empty.
+    if (arr.length == 0) {
+      return -1;
+    }
+
+    // If array has only one element.
     if (arr.length == 1) {
       if (arr[0] == num) {
         return 0;
@@ -48,7 +54,7 @@ class Main {
     // Note: Since the array is rotated, pivot can never be the last index of the array.
     int pivot = getPivotIndex(arr);
 
-    if (pivot == num) {
+    if (arr[pivot] == num) {
       return pivot;
     }
 
