@@ -39,11 +39,7 @@ class Main {
 
     // If array has only one element.
     if (arr.length == 1) {
-      if (arr[0] == num) {
-        return 0;
-      } else {
-        return -1;
-      }
+      return arr[0] == num ? 0 : -1;
     }
 
     // If the array is not rotated.
