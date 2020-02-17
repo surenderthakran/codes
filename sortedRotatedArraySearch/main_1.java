@@ -72,19 +72,27 @@ class Main {
   }
 
   static int getPivotIndex(int[] arr, int left, int right) {
+    if (left > right) {
+      return -1;
+    }
+
+    if (left == right) {
+      return left;
+    }
+
     int mid = (left + right) / 2;
 
     // If mid itself is the pivot.
-    if ( arr[mid] > arr [mid + 1]) {
+    if (arr[mid] > arr[mid + 1]) {
       return mid;
     }
 
     int pivotOnLeft = -1;
     int pivotOnRight = -1;
 
-    if (left != mid) {
+    if (left < mid) {
       if (left == mid - 1) {
-        if(arr[left] > arr [mid]) {
+        if(arr[left] > arr[mid]) {
           return left;
         }
       } else if (arr[left] >= arr[mid - 1]) {           // Search for pivot in the left half only if
