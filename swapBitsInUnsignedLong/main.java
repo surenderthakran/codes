@@ -105,5 +105,25 @@ class Main {
     // int rotateRightUnsignedBinary = Integer.rotateRight(unsignedBinary, 3);
     // System.out.println("\nright Rotated Value in Decimal: " + rotateRightUnsignedBinary);
     // System.out.println("right Rotated Value in Binary: " + Integer.toBinaryString(rotateRightUnsignedBinary));
+
+    System.out.println("\nBit Manipulation ==============================");
+
+    int unsignedInt = Integer.parseUnsignedInt("10000000000000000000000011100000", 2);
+    int signedInt = 0b00100000000000000000000111000000;
+
+    int number = 10;
+
+    System.out.println(Integer.toBinaryString(number) + " : " + number);
+    System.out.println(Integer.toBinaryString(number << 3) + " : " + (number << 3) + " left shift by 3");
+    System.out.println(Integer.toBinaryString(number >> 3) + " : " + (number >> 3) + " signed right shift by 3");
+    System.out.println(Integer.toBinaryString(number >>> 3) + " : " + (number >>> 3) + " unsigned right shift by 3");
+    System.out.println(Integer.toBinaryString(~number) + " : " + ~number + " complement");
+
+    number = ~number;
+
+    System.out.println(Integer.toBinaryString(number << 3) + " : " + (number << 3) + " left shift by 3");
+    System.out.println(Integer.toBinaryString(number >> 3) + " : " + (number >> 3) + " signed right shift by 3");
+    System.out.println(Integer.toBinaryString(number >>> 3) + " : " + (number >>> 3) + " unsigned right shift by 3");
+    System.out.println(Integer.toBinaryString(~number) + " : " + ~number + " complement");
   }
 }
