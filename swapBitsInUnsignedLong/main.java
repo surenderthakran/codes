@@ -121,9 +121,17 @@ class Main {
 
     number = ~number;
 
+    System.out.println("");
     System.out.println(Integer.toBinaryString(number << 3) + " : " + (number << 3) + " left shift by 3");
     System.out.println(Integer.toBinaryString(number >> 3) + " : " + (number >> 3) + " signed right shift by 3");
     System.out.println(Integer.toBinaryString(number >>> 3) + " : " + (number >>> 3) + " unsigned right shift by 3");
     System.out.println(Integer.toBinaryString(~number) + " : " + ~number + " complement");
+
+    System.out.println("");
+
+    int secondOperand = -1;
+    System.out.println(Integer.toBinaryString(number & secondOperand) + " : " + (number & secondOperand) + " & " + secondOperand);
+    System.out.println(Integer.toBinaryString(number | secondOperand) + " : " + (number | secondOperand) + " | " + secondOperand);
+    System.out.println(Integer.toBinaryString(number ^ secondOperand) + " : " + (number ^ secondOperand) + " ^ " + secondOperand);
   }
 }
