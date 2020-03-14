@@ -92,7 +92,8 @@ class Main {
       }
 
       // Right neighbour
-      if (currPoint.column + 1 < grid[currPoint.row].length && grid[currPoint.row][currPoint.column + 1] == '1') {
+      if (currPoint.column + 1 < grid[currPoint.row].length &&
+          grid[currPoint.row][currPoint.column + 1] == '1') {
         islandPoints.add(new Point(currPoint.row, currPoint.column + 1));
       }
 
