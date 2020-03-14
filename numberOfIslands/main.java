@@ -8,11 +8,30 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Point {
-  int i, j;
+  int row, column;
 
-  Point(int i, int j) {
-    this.i = i;
-    this.j = j;
+  Point(int row, int column) {
+    this.row = row;
+    this.column = column;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+
+    if (obj == null || obj.getClass() != this.getClass()) {
+      return false;
+    }
+
+    Point p = (Point) obj;
+    return p.row == this.row && p.column == this.column;
+  }
+
+  @Override
+  public int hashCode() {
+    return this.row + this.column;
   }
 }
 
@@ -22,12 +41,19 @@ class Main {
     assert assertsEnabled = true;
 
     if (assertsEnabled) {
-      char[][] grid = {
+      char[][] grid1 = {
         {'1','1','1','1','0'},
         {'1','1','0','1','0'},
         {'1','1','0','0','0'},
         {'0','0','0','0','0'}};
-      assert numIslands(grid) == 1;
+      assert numIslands(grid1) == 1;
+
+      char[][] grid2 = {
+        {'1','1','0','0','0'},
+        {'1','1','0','0','0'},
+        {'0','0','1','0','0'},
+        {'0','0','0','1','1'}};
+      assert numIslands(grid2) == 3;
 
       System.out.println("All Assertions Succeeded!");
     } else {
@@ -37,11 +63,15 @@ class Main {
 
   static int numIslands(char[][] grid) {
     int numOfIslands = 0;
-    for (int i = 0; i < grid.length; i++) {
-      for (int j = 0; j < grid[i].length; j++) {
-        if (grid[i][j] == '1') {
+
+    // Iterate over every grid point.
+    for (int row = 0; row < grid.length; row++) {
+      for (int column = 0; column < grid[row].length; column++) {
+
+        // If an island is found, increase the count and sink the island.
+        if (grid[row][column] == '1') {
           numOfIslands++;
-          sinkIsland(grid, new Point(i, j));
+          sinkIsland(grid, new Point(row, column));
         }
       }
     }
@@ -57,26 +87,27 @@ class Main {
       Point currPoint = islandPoints.iterator().next();
 
       // Left neighbour
-      if (currPoint.j - 1 >= 0 && grid[currPoint.i][currPoint.j - 1] == '1') {
-        islandPoints.add(new Point(currPoint.i, currPoint.j - 1));
+      if (currPoint.column - 1 >= 0 && grid[currPoint.row][currPoint.column - 1] == '1') {
+        islandPoints.add(new Point(currPoint.row, currPoint.column - 1));
       }
 
       // Right neighbour
-      if (currPoint.j + 1 < grid[currPoint.i].length && grid[currPoint.i][currPoint.j + 1] == '1') {
-        islandPoints.add(new Point(currPoint.i, currPoint.j + 1));
+      if (currPoint.column + 1 < grid[currPoint.row].length && grid[currPoint.row][currPoint.column + 1] == '1') {
+        islandPoints.add(new Point(currPoint.row, currPoint.column + 1));
       }
 
       // Top neighbour
-      if (currPoint.i - 1 >= 0 && grid[currPoint.i - 1][currPoint.j] == '1') {
-        islandPoints.add(new Point(currPoint.i - 1, currPoint.j));
+      if (currPoint.row - 1 >= 0 && grid[currPoint.row - 1][currPoint.column] == '1') {
+        islandPoints.add(new Point(currPoint.row - 1, currPoint.column));
       }
 
       // Bottom neighbour
-      if (currPoint.i + 1 < grid.length && grid[currPoint.i + 1][currPoint.j] == '1') {
-        islandPoints.add(new Point(currPoint.i + 1, currPoint.j));
+      if (currPoint.row + 1 < grid.length && grid[currPoint.row + 1][currPoint.column] == '1') {
+        islandPoints.add(new Point(currPoint.row + 1, currPoint.column));
       }
 
-      grid[currPoint.i][currPoint.j] = '0';
+      // Sink current point and remove it from the island set.
+      grid[currPoint.row][currPoint.column] = '0';
       islandPoints.remove(currPoint);
     }
   }
