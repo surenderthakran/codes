@@ -1,5 +1,20 @@
+/**
+ * Given an unsigned byte and two bit locations, write a solution to swap the two bits.
+ */
+
 class Main {
   public static void main(String[] args) {
+
+    boolean assertsEnabled = false;
+    assert assertsEnabled = true;
+
+    if (assertsEnabled) {
+      assert swapBits(0b10101010, 2, 5) == 0b10001110;
+
+      System.out.println("All Assertions Succeeded!");
+    } else {
+      System.out.println("Asserions not enabled! Results not verified!");
+    }
 
     // System.out.println("Binary ==============================");
     //
@@ -140,5 +155,9 @@ class Main {
 
     long lng = 4294967294L;
     System.out.println(Long.toBinaryString(lng) + " : " + lng);
+  }
+
+  byte swapBits(byte num, int one, int two) {
+    return 0b00000000;
   }
 }
