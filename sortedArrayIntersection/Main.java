@@ -2,6 +2,8 @@
  * Given two sorted integer arrays, find their intersection.
  */
 
+package com.surenderthakran.coding.sortedarrayintersection;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
