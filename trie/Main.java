@@ -1,6 +1,8 @@
 package com.surenderthakran.coding.trie;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 class Main {
@@ -25,6 +27,7 @@ class Main {
     words.add("abd");
     words.add("abcd");
     words.add("babc");
+    words.add("");
     words.add("bbc");
     words.add("bcda");
     words.add("cabd");
@@ -33,5 +36,11 @@ class Main {
 
     assert trie.contains("abcd") == true;
     assert trie.contains("bbcd") == false;
+
+    trie.delete("abcd");
+
+    assert trie.contains("abcd") == false;
+
+    assert trie.wordsByPrefix("ab").equals(new HashSet<>(Arrays.asList("abc", "abd")));
   }
 }
