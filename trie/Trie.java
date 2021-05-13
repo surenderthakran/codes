@@ -2,7 +2,6 @@ package com.surenderthakran.coding.trie;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 class Trie {
 
@@ -13,20 +12,23 @@ class Trie {
   }
 
   void insert(ArrayList<String> words) {
-    words.stream().filter(word -> !word.isEmpty()).forEach(word -> {
-      Node currentNode = this.root;
-      for (char ch : word.toCharArray()) {
-        if (currentNode.hasChild(ch)) {
-          currentNode = currentNode.getChild(ch);
-          continue;
-        }
+    words.stream()
+        .filter(word -> !word.isEmpty())
+        .forEach(
+            word -> {
+              Node currentNode = this.root;
+              for (char ch : word.toCharArray()) {
+                if (currentNode.hasChild(ch)) {
+                  currentNode = currentNode.getChild(ch);
+                  continue;
+                }
 
-        Node newNode = new Node(ch);
-        currentNode.addChild(newNode);
-        currentNode = newNode;
-      }
-      currentNode.setIsLast(true);
-    });
+                Node newNode = new Node(ch);
+                currentNode.addChild(newNode);
+                currentNode = newNode;
+              }
+              currentNode.setIsLast(true);
+            });
   }
 
   boolean contains(String word) {
@@ -59,13 +61,10 @@ class Trie {
     currentNode.setIsLast(false);
 
     while (!currentNode.isLast() && !currentNode.hasChildren()) {
-      System.out.println(currentNode);
-      currentNode.getParent().removeChild(currentNode);
+      Node parent = currentNode.getParent();
+      parent.removeChild(currentNode);
+      currentNode = parent;
     }
-  }
-
-  HashSet<String> wordsByPrefix(String prefix) {
-    return new HashSet<>();
   }
 
   private class Node {
