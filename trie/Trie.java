@@ -1,3 +1,10 @@
+/**
+ * Trie is a tree like data structure used to better structure a dictonary (set of words) so as to
+ * make it easier to search for a given word. Other applications include auto complete, prefix based
+ * search, spell check etc. Also, explore Aho-Corasick algorithm which is like an advanced Trie.
+ *
+ * <p>Complexity: Word Insertion: O(n) Search: O(n)
+ */
 package com.surenderthakran.coding.trie;
 
 import java.util.ArrayList;
@@ -13,7 +20,7 @@ class Trie {
 
   void insert(ArrayList<String> words) {
     words.stream()
-        .filter(word -> !word.isEmpty())
+        .filter(word -> !word.isEmpty()) // Filter out empty words.
         .forEach(
             word -> {
               Node currentNode = this.root;
@@ -44,18 +51,21 @@ class Trie {
     return currentNode.isLast();
   }
 
-  void delete(String word) {
+  boolean delete(String word) {
     Node currentNode = this.root;
     for (char ch : word.toCharArray()) {
       if (!currentNode.hasChild(ch)) {
-        return;
+        return false;
       }
 
       currentNode = currentNode.getChild(ch);
     }
 
+    // Return if the node containing the last character of the given word is not the last node of an
+    // existing word in the trie dictionary. Meaning that the word to delete does not exists in the
+    // trie.
     if (!currentNode.isLast()) {
-      return;
+      return false;
     }
 
     currentNode.setIsLast(false);
@@ -65,6 +75,8 @@ class Trie {
       parent.removeChild(currentNode);
       currentNode = parent;
     }
+
+    return true;
   }
 
   private class Node {

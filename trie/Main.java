@@ -35,7 +35,7 @@ class Main {
     assert trie.contains("abcd") == true;
     assert trie.contains("bbcd") == false;
 
-    trie.delete("abcd");
+    assert trie.delete("abcd") == true;
 
     assert trie.contains("abcd") == false;
   }
