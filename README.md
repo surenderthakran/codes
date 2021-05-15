@@ -18,6 +18,7 @@
 ##### 6. (Difficulty: 3) [Search a number in a sorted circular rotated array.](sortedRotatedArraySearch/main.java)
 ##### 7. (Difficulty: 3) [Pending - Swap two bits in a given unsigned long integer.](swapBitsInUnsignedLong/main.java)
 ##### 8. (Difficulty: 3) [Count the number of islands in a 2d grid.](numberOfIslands/main.java)
+##### 9. (Difficulty: 4) [Find words whose number representation are substring of a given number.](findWordsInNumber/Main.java)
 
 ### Design
 
