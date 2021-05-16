@@ -1,66 +1,9 @@
-/**
- * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is
- * surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
- * You may assume all four edges of the grid are all surrounded by water.
-*/
+package com.surenderthakran.coding.numberofislands;
 
 import java.util.HashSet;
 import java.util.Set;
 
-class Point {
-  int row, column;
-
-  Point(int row, int column) {
-    this.row = row;
-    this.column = column;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == this) {
-      return true;
-    }
-
-    if (obj == null || obj.getClass() != this.getClass()) {
-      return false;
-    }
-
-    Point p = (Point) obj;
-    return p.row == this.row && p.column == this.column;
-  }
-
-  @Override
-  public int hashCode() {
-    return this.row + this.column;
-  }
-}
-
-class Main {
-  public static void main(String[] args) {
-    boolean assertsEnabled = false;
-    assert assertsEnabled = true;
-
-    if (assertsEnabled) {
-      char[][] grid1 = {
-        {'1','1','1','1','0'},
-        {'1','1','0','1','0'},
-        {'1','1','0','0','0'},
-        {'0','0','0','0','0'}};
-      assert numIslands(grid1) == 1;
-
-      char[][] grid2 = {
-        {'1','1','0','0','0'},
-        {'1','1','0','0','0'},
-        {'0','0','1','0','0'},
-        {'0','0','0','1','1'}};
-      assert numIslands(grid2) == 3;
-
-      System.out.println("All Assertions Succeeded!");
-    } else {
-      System.out.println("Asserions not enabled! Results not verified!");
-    }
-  }
-
+class Solution {
   static int numIslands(char[][] grid) {
     int numOfIslands = 0;
 
@@ -92,8 +35,8 @@ class Main {
       }
 
       // Right neighbour
-      if (currPoint.column + 1 < grid[currPoint.row].length &&
-          grid[currPoint.row][currPoint.column + 1] == '1') {
+      if (currPoint.column + 1 < grid[currPoint.row].length
+          && grid[currPoint.row][currPoint.column + 1] == '1') {
         islandPoints.add(new Point(currPoint.row, currPoint.column + 1));
       }
 
