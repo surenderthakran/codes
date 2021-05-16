@@ -1,6 +1,6 @@
 package com.surenderthakran.coding.countallrectanglesalignedtoaxes;
 
-/** Time Complexity: `O(n)` */
+/** Time Complexity: `O(n^4)` */
 class SolutionBruteForce {
 
   static int countAllRectaglesAlignedToAxes(int[][] points) {

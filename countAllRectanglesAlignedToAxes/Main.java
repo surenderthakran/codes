@@ -21,6 +21,13 @@ class Main {
                 {5, 5}, {0, 5}, {0, 0}, {5, 0}, {2, 3}, {5, 3}, {0, 3}, {-2, 0}, {-2, 3}, {-2, -3}
               })
           == 5;
+
+      assert Solution.countAllRectaglesAlignedToAxes(
+              new int[][] {
+                {5, 5}, {0, 5}, {0, 0}, {5, 0}, {2, 3}, {5, 3}, {0, 3}, {-2, 0}, {-2, 3}, {-2, -3}
+              })
+          == 5;
+
       System.out.println("All Assertions Succeeded!");
     } else {
       System.out.println("Assertions not enabled! Results not verified!");
