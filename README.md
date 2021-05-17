@@ -20,6 +20,7 @@
 ##### 8. (Difficulty: 3) [Count the number of islands in a 2d grid.](numberOfIslands/main.java)
 ##### 9. (Difficulty: 4) [Find words whose number representation are substring of a given number.](findWordsInNumber/Main.java)
 ##### 10. (Difficulty: 3) [Given a list of coordinates in a 2D plane, count number of rectangles that can be created whose edges are aligned to the two axes.](countallrectanglesalignedtoaxes/Main.java)
+##### 11. (Difficulty: 3) [Determine if an input string can be segmented into words from a given list of words.](segmentStringIntoDictionaryWords/Main.java);
 
 ### Design
 
