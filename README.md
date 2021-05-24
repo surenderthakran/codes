@@ -23,6 +23,7 @@
 ##### 11. (Difficulty: 3) [Determine if an input string can be segmented into words from a given list of words.](segmentStringIntoDictionaryWords/Main.java)
 ##### 12. (Difficulty: 3) [Given a number string, find the number of ways it can be converted to english alphabet words for a one to one mapping between alphabets and numbers.](numberstringtowords/Main.java)
 ##### 13. (Difficulty: 3) [Find the best apartment block on a single lane street based on minimum maximum distance to any of the required buildings.](findBestApartment/Main.java)
+##### 14. (Difficulty: 4) [Find all permutations of a small string which exist in a larger string.](findNumberOfSmallStringPermutationsInLargeString/Main.java)
 
 ### Design
 
