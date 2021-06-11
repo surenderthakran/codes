@@ -1,6 +1,6 @@
 package com.surenderthakran.coding.subsetwithgivensuminarray;
 
-class Solution {
+class FirstProblemSolution {
 
   static boolean hasSubsetWithGivenSum(int[] arr, int target) {
     if (arr.length == 0) {
@@ -11,6 +11,10 @@ class Solution {
   }
 
   static boolean hasSubsetWithGivenSum(int[] arr, int beginIndex, int target) {
+    if (target == 0) {
+      return true;
+    }
+
     if (beginIndex == arr.length - 1) {
       return arr[beginIndex] == target ? true : false;
     }

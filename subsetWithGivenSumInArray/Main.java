@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Given an array of integers and a target integer.<br>
+ * Problem 1: Check if the array has any subsets whose elements add up to the target.<br>
+ * Problem 2: Return the number of subsets of the array whose elements add up to the target.
+ */
 class Main {
 
   public static void main(String[] args) {
@@ -11,17 +16,20 @@ class Main {
     assert assertsEnabled = true;
 
     if (assertsEnabled) {
-      assert Solution.hasSubsetWithGivenSum(new int[] {2, 4, 6, 10}, 16) == true;
-      assert Solution.hasSubsetWithGivenSum(new int[] {2, 4, 6}, 16) == false;
+      assert FirstProblemSolution.hasSubsetWithGivenSum(new int[] {2, 4, 6, 10}, 16) == true;
+      assert FirstProblemSolution.hasSubsetWithGivenSum(new int[] {2, 4, 6}, 16) == false;
 
-      assert Solution.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 9) == true;
-      assert Solution.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 30) == false;
+      assert FirstProblemSolution.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 9) == true;
+      assert FirstProblemSolution.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 30) == false;
 
-      assert SolutionWithDP.hasSubsetWithGivenSum(new int[] {2, 4, 6, 10}, 16) == true;
-      assert SolutionWithDP.hasSubsetWithGivenSum(new int[] {2, 4, 6}, 16) == false;
+      assert FirstProblemSolutionWithDP.hasSubsetWithGivenSum(new int[] {2, 4, 6, 10}, 16) == true;
+      assert FirstProblemSolutionWithDP.hasSubsetWithGivenSum(new int[] {2, 4, 6}, 16) == false;
 
-      assert SolutionWithDP.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 9) == true;
-      assert SolutionWithDP.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 30) == false;
+      assert FirstProblemSolutionWithDP.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 9) == true;
+      assert FirstProblemSolutionWithDP.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 30) == false;
+
+      assert SecondProblemSolutionWithDP.hasSubsetWithGivenSum(new int[] {2, 4, 6, 10}, 16) == 2;
+      assert SecondProblemSolutionWithDP.hasSubsetWithGivenSum(new int[] {3, 34, 4, 12, 5, 2}, 9) == 2;
 
       System.out.println("All Assertions Succeeded!");
     } else {

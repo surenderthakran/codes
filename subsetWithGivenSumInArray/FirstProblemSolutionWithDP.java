@@ -2,7 +2,7 @@ package com.surenderthakran.coding.subsetwithgivensuminarray;
 
 import java.util.HashMap;
 
-class SolutionWithDP {
+class FirstProblemSolutionWithDP {
 
   static boolean hasSubsetWithGivenSum(int[] arr, int target) {
     if (arr.length == 0) {
@@ -16,6 +16,10 @@ class SolutionWithDP {
 
   static boolean hasSubsetWithGivenSum(
       int[] arr, int beginIndex, int target, HashMap<String, Boolean> memoMatrix) {
+    if (target == 0) {
+      return true;
+    }
+
     if (beginIndex == arr.length - 1) {
       return arr[beginIndex] == target ? true : false;
     }
