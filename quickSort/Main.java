@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * Quicksort is an in-place sorting algorithm.
- * Also called partition-exchage algorithm.
+ * Also called partition-exchange algorithm.
  * It employs divide-and-conquer strategy.
  *
  * Time Complexity:

@@ -24,6 +24,7 @@
 ##### 12. (Difficulty: 3) [Given a number string, find the number of ways it can be converted to english alphabet words for a one to one mapping between alphabets and numbers.](numberstringtowords/Main.java)
 ##### 13. (Difficulty: 3) [Find the best apartment block on a single lane street based on minimum maximum distance to any of the required buildings.](findBestApartment/Main.java)
 ##### 14. (Difficulty: 4) [Find all permutations of a small string which exist in a larger string.](findNumberOfSmallStringPermutationsInLargeString/Main.java)
+##### 15. (Difficulty: 4) [Given an array of integers and a target integer, check if any subset elements of the array can add up to the target. (Subset Problem)](subsetWithGivenSumInArray/Main.java)
 
 ### Design
 
