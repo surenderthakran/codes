@@ -15,17 +15,33 @@ class Main {
       assert Solution1.areKeypressArraysEqual(
               new char[] {'a', 'b', 'c', '#', 'd'}, new char[] {'a', 'c', '#', 'b', 'd'})
           == true;
-
       assert Solution1.areKeypressArraysEqual(
               new char[] {'a', 'b', 'c', '#', 'd', 'e'}, new char[] {'a', 'c', '#', 'b', 'd'})
           == false;
-
       assert Solution1.areKeypressArraysEqual(
               new char[] {'#', 'a', 'b', 'c', '#', 'd'}, new char[] {'a', 'c', '#', 'b', 'd'})
           == true;
-
       assert Solution1.areKeypressArraysEqual(
               new char[] {'a', 'b', 'c', '#', 'd', 'e', '#'}, new char[] {'a', 'c', '#', 'b', 'd'})
+          == true;
+      assert Solution1.areKeypressArraysEqual(
+          new char[] {'a', 'b', 'c', '#', 'd','#', '#'}, new char[] {'a'})
+          == true;
+
+      assert Solution2.areKeypressArraysEqual(
+          new char[] {'a', 'b', 'c', '#', 'd'}, new char[] {'a', 'c', '#', 'b', 'd'})
+          == true;
+      assert Solution2.areKeypressArraysEqual(
+          new char[] {'a', 'b', 'c', '#', 'd', 'e'}, new char[] {'a', 'c', '#', 'b', 'd'})
+          == false;
+      assert Solution2.areKeypressArraysEqual(
+          new char[] {'#', 'a', 'b', 'c', '#', 'd'}, new char[] {'a', 'c', '#', 'b', 'd'})
+          == true;
+      assert Solution2.areKeypressArraysEqual(
+          new char[] {'a', 'b', 'c', '#', 'd', 'e', '#'}, new char[] {'a', 'c', '#', 'b', 'd'})
+          == true;
+      assert Solution2.areKeypressArraysEqual(
+          new char[] {'a', 'b', 'c', '#', 'd','#', '#'}, new char[] {'a'})
           == true;
 
       System.out.println("All Assertions Succeeded!");
