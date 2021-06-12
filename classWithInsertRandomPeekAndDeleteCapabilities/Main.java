@@ -3,25 +3,25 @@ package com.surenderthakran.coding.classwithinsertrandompeekanddelete;
 /**
  * Design a class for a jar containing coloured marbles which supports the following operations:
  *
- * 1. Add marbles to jar.
- * 2. Randomly take a marble from the jar, identify its color and put it back in the jar.
- * 3. Randomly take a marble from the jar and identify its color.
+ * <p>1. Add marbles to jar. 2. Randomly take a marble from the jar, identify its color and put it
+ * back in the jar. 3. Randomly take a marble from the jar and identify its color.
  *
- * Solution is to use a List data structure to hold marbles in the jar.
- * For fetching random marbles, we use java.util's Random class.
+ * <p>Solution is to use a List data structure to hold marbles in the jar. For fetching random
+ * marbles, we use java.util's Random class.
  */
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 enum Colour {
-  RED, BLUE, GREEN
+  RED,
+  BLUE,
+  GREEN
 }
 
 class Marble {
-  private Colour colour;
+  private final Colour colour;
 
   Marble(Colour colour) {
     this.colour = colour;
@@ -58,9 +58,7 @@ class Jar {
   }
 
   Colour[] getMarbleColours() {
-    return this.marbleList.stream()
-      .map(marble -> marble.getColour())
-      .toArray(Colour[]::new);
+    return this.marbleList.stream().map(marble -> marble.getColour()).toArray(Colour[]::new);
   }
 
   private int getRandomListIndex() {
@@ -70,7 +68,7 @@ class Jar {
 }
 
 class Main {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
     Marble red1 = new Marble(Colour.RED);
     Marble red2 = new Marble(Colour.RED);
     Marble red3 = new Marble(Colour.RED);
@@ -84,7 +82,7 @@ class Main {
     Marble green2 = new Marble(Colour.GREEN);
 
     Jar jar = new Jar();
-    jar.insertMarbles(new Marble[]{red1, blue1, green1, red2, blue2, green2, red3, blue3, blue4});
+    jar.insertMarbles(new Marble[] {red1, blue1, green1, red2, blue2, green2, red3, blue3, blue4});
 
     System.out.println("Jar size: " + jar.getSize());
     System.out.println(Arrays.toString(jar.getMarbleColours()));
