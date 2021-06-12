@@ -1,3 +1,5 @@
+package com.surenderthakran.coding.classwithinsertrandompeekanddelete;
+
 /**
  * Design a class for a jar containing coloured marbles which supports the following operations:
  *
@@ -5,7 +7,7 @@
  * 2. Randomly take a marble from the jar, identify its color and put it back in the jar.
  * 3. Randomly take a marble from the jar and identify its color.
  *
- * Solution is to use a List data structure to hold marbles iin the jar.
+ * Solution is to use a List data structure to hold marbles in the jar.
  * For fetching random marbles, we use java.util's Random class.
  */
 
