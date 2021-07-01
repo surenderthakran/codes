@@ -46,7 +46,7 @@ class MultiPatternSearchSolutionWithoutMod {
     // patterns.
     int windowHash = 0;
     for (int i = 0; i < text.length() - patternLength; i++) {
-      // Find the hash of the substring current;y in the window.
+      // Find the hash of the substring currently in the window.
       if (i == 0) {
         windowHash = getRabinFingerPrint(text, 0, patternLength - 1);
       } else {
@@ -57,8 +57,8 @@ class MultiPatternSearchSolutionWithoutMod {
         windowHash = (windowHash - hashOfPreviousFirstChar) * CHARACTER_SET_SIZE + (hashOfNewChar);
       }
 
-      // If the calculated hash of the window' substring exists in the set of patterns, determine if
-      // the two texts are actually equal.
+      // If the calculated hash of the window's substring exists in the set of patterns, determine
+      // if the two texts are actually equal.
       if (patternHashs.contains(windowHash)) {
         String windowString = text.substring(i, i + patternLength);
         if (containsString(patterns, windowString)) {

@@ -24,6 +24,12 @@ class Main {
               "thisisarandomtextstringusedfortestingrabinkarpalgorithm"),
           new String[] {"this", "text", "used", "karp"});
 
+      assert areEqualIgnoringOrder(
+          MultiPatternSearchSolutionWithMod.patternsInText(
+              new String[] {"this", "text", "used", "karp", "work", "pill"},
+              "thisisarandomtextstringusedfortestingrabinkarpalgorithm"),
+          new String[] {"this", "text", "used", "karp"});
+
       System.out.println("All Assertions Succeeded!");
     } else {
       System.out.println("Asserions not enabled! Results not verified!");
