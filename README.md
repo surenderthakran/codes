@@ -8,6 +8,7 @@
 
 ##### 1. (Difficulty: 2) [Binary Search Tree](binarySearchTree/main.java)
 ##### 2. (Difficulty: 2) [Trie](trie/Main.java)
+##### 3. (Difficulty: 3) [Max Heap](maxHeap/Main.java)
 
 ### Problems
 
