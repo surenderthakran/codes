@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.numberstringtowords;
+package com.surenderthakran.codes.numberstringtowords;
 
 class SolutionWithoutMemoization {
 

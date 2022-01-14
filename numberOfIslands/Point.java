@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.numberofislands;
+package com.surenderthakran.codes.numberofislands;
 
 class Point {
   int row, column;

@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.zerooneknapsackproblem;
+package com.surenderthakran.codes.zerooneknapsackproblem;
 
 /**
  * Given a list of item where each item has a specified weight and value, find the maximum value

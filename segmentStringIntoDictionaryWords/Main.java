@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.segmentstringintodictionarywords;
+package com.surenderthakran.codes.segmentstringintodictionarywords;
 
 /**
  * Given an input string and a list of words, determnine if the whole input string can be used to

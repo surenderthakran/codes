@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.classwithinsertrandompeekanddelete;
+package com.surenderthakran.codes.classwithinsertrandompeekanddelete;
 
 /**
  * Design a class for a jar containing coloured marbles which supports the following operations:

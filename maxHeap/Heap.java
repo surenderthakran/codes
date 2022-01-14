@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.maxHeap;
+package com.surenderthakran.codes.maxHeap;
 
 import java.util.ArrayList;
 

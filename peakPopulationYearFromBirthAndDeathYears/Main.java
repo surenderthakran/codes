@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.peakpopulationyearfrombirthanddeathyears;
+package com.surenderthakran.codes.peakpopulationyearfrombirthanddeathyears;
 
 import java.util.Arrays;
 

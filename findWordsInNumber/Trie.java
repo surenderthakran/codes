@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.findwordsinnumber;
+package com.surenderthakran.codes.findwordsinnumber;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -2,7 +2,7 @@
  * Given two sorted integer arrays, find their intersection.
  */
 
-package com.surenderthakran.coding.sortedarrayintersection;
+package com.surenderthakran.codes.sortedarrayintersection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

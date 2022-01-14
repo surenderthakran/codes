@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.alphabetizelowercasechars;
+package com.surenderthakran.codes.alphabetizelowercasechars;
 
 import java.util.ArrayList;
 

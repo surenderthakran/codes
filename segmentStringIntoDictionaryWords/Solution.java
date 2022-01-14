@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.segmentstringintodictionarywords;
+package com.surenderthakran.codes.segmentstringintodictionarywords;
 
 class Solution {
 

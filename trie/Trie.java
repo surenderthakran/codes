@@ -5,7 +5,7 @@
  *
  * <p>Complexity: Word Insertion: O(n) Search: O(n)
  */
-package com.surenderthakran.coding.trie;
+package com.surenderthakran.codes.trie;
 
 import java.util.ArrayList;
 import java.util.HashMap;

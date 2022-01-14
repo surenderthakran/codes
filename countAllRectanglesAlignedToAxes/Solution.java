@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.countallrectanglesalignedtoaxes;
+package com.surenderthakran.codes.countallrectanglesalignedtoaxes;
 
 import java.util.Map.Entry;
 import java.util.HashMap;

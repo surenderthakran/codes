@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.subsetwithgivensuminarray;
+package com.surenderthakran.codes.subsetwithgivensuminarray;
 
 class FirstProblemSolution {
 

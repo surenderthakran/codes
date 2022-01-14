@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.hexadecimaladdition;
+package com.surenderthakran.codes.hexadecimaladdition;
 
 /** Given two hexadecimal strings, return their sum as string in hexadecimal format. */
 class Main {

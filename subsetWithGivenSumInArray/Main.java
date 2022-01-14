@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.subsetwithgivensuminarray;
+package com.surenderthakran.codes.subsetwithgivensuminarray;
 
 import java.util.ArrayList;
 import java.util.Arrays;

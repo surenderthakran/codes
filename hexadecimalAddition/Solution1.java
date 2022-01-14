@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.hexadecimaladdition;
+package com.surenderthakran.codes.hexadecimaladdition;
 
 // O(n)
 class Solution1 {

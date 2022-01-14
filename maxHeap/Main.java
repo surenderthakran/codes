@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.maxHeap;
+package com.surenderthakran.codes.maxHeap;
 
 class Main {
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.comparekeypressarrays;
+package com.surenderthakran.codes.comparekeypressarrays;
 
 /**
  * Given two arrays of keypresses, determine if they would print the same string.

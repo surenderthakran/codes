@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.findbestapartment;
+package com.surenderthakran.codes.findbestapartment;
 
 import java.util.ArrayList;
 import java.util.HashMap;

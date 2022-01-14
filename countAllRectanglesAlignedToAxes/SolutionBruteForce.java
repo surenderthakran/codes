@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.countallrectanglesalignedtoaxes;
+package com.surenderthakran.codes.countallrectanglesalignedtoaxes;
 
 /** Time Complexity: `O(n^4)` */
 class SolutionBruteForce {

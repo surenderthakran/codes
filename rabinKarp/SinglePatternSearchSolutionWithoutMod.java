@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.rabinkarp;
+package com.surenderthakran.codes.rabinkarp;
 
 /**
  * The single pattern search works broadly as follows:

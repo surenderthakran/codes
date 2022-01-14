@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.findnumberofsmallstringpermutationsinlargestring;
+package com.surenderthakran.codes.findnumberofsmallstringpermutationsinlargestring;
 
 import java.util.Arrays;
 

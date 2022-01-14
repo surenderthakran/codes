@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.numberstringtowords;
+package com.surenderthakran.codes.numberstringtowords;
 
 /**
  * Given the following mapping between alphabets and numbers.

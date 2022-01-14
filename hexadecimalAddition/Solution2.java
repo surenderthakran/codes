@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.hexadecimaladdition;
+package com.surenderthakran.codes.hexadecimaladdition;
 
 class Solution2 {
   private static final String HEXADECIMAL_CHARS = "0123456789abcdef";

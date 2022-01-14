@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.comparekeypressarrays;
+package com.surenderthakran.codes.comparekeypressarrays;
 
 class Solution2 {
 

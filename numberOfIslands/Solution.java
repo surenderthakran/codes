@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.numberofislands;
+package com.surenderthakran.codes.numberofislands;
 
 import java.util.HashSet;
 import java.util.Set;

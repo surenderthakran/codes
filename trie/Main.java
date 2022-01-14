@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.trie;
+package com.surenderthakran.codes.trie;
 
 import java.util.ArrayList;
 import java.util.List;

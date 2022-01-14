@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.countallrectanglesalignedtoaxes;
+package com.surenderthakran.codes.countallrectanglesalignedtoaxes;
 
 /**
  * Given a series of points on the XY cartesian plane, identify the maximum number of rectangles

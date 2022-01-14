@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.zerooneknapsackproblem;
+package com.surenderthakran.codes.zerooneknapsackproblem;
 
 /**
  * The solution uses tabulation dynamic programming technique.<br>

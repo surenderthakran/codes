@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.rabinkarp;
+package com.surenderthakran.codes.rabinkarp;
 
 import java.util.Arrays;
 

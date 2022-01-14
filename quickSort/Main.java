@@ -1,4 +1,4 @@
-package com.surenderthakran.coding.quicksort;
+package com.surenderthakran.codes.quicksort;
 
 import java.util.Arrays;
 
