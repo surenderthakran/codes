@@ -9,13 +9,13 @@ package com.surenderthakran.codes.rabinkarp;
  *   <li>If the pattern's hash and hash of the text in the window match, check if the strings also
  *       match.
  *   <li>If the string's match, return true.
- *   <li>If not, slide the window forward by one index and repeate step 2.
+ *   <li>If not, slide the window forward by one index and repeat step 2.
  * </ol>
- *
+ * <p>
  * hash[a,b,c] = 'a'.p^2 + 'b'.p^1 + 'c'.p^0<br>
- * where, p = size of characterset
+ * where, p = size of the character set
  *
- * <p>To calculate the hash of a window from the hash of the previous window:<br>
+ * <p>To calculate the hash of a window ("bcd") from the hash of the previous window ("abc"):<br>
  * hash[b,c,d] = (hash[a,b,c] - 'a'.p^2) * p + 'd'.p^0
  *
  * <p>Time Complexity:
@@ -62,7 +62,9 @@ class SinglePatternSearchSolutionWithoutMod {
     return false;
   }
 
-  /** hash[a,b,c] = intVal(a).p^2 + intVal(b).p^1 + intVal(c).p^0 p = size of characterset */
+  /**
+   * hash[a,b,c] = intVal(a).p^2 + intVal(b).p^1 + intVal(c).p^0 p = size of character set.
+   */
   private static int getRabinFingerprint(String text, int start, int end) {
     int hash = 0;
     for (int i = start; i <= end; i++) {
@@ -72,10 +74,16 @@ class SinglePatternSearchSolutionWithoutMod {
     return hash;
   }
 
+  /**
+   * Returns 1 for 'a', 2 for 'b' and so on.
+   */
   private static int getIntValue(char ch) {
     return ch - 'a' + 1;
   }
 
+  /**
+   * Time complexity: O(m) where m is length of the pattern.
+   */
   private static boolean compareStrings(String pattern, String text, int start, int end) {
     for (int i = 0; i < pattern.length(); i++) {
       if (pattern.charAt(i) != text.charAt(start + i)) {
