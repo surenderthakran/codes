@@ -11,7 +11,7 @@ package com.surenderthakran.codes.rabinkarp;
  *   <li>If the string's match, return true.
  *   <li>If not, slide the window forward by one index and repeate step 2.
  * </ol>
- *
+ * <p>
  * Note: Go through the `WithoutMod` solution to better understand the current solution.
  *
  * <p>Time Complexity:
@@ -50,12 +50,12 @@ class SinglePatternSearchSolutionWithMod {
       if (i == 0) {
         windowHash = getRabinFingerprint(text, 0, pattern.length() - 1);
       } else {
-        // The rolling hash can be netter explained with an example.
-        // Note: Below we have a simplified example with the mod. Using mod makes it slightly more
-        // complicated but the idea remians the same.
+        // The rolling hash can be better explained with an example.
+        // Note: Below we have a simplified example without the mod. Using mod makes it slightly more
+        // complicated but the idea remains the same.
         // hash[a,b,c] = 'a'.p^2 + 'b'.p^1 + 'c'.p^0
         // hash[b,c,d] = ((hash[a,b,c] - 'a'.p^2) * p) + 'd'.p^0
-        // where, p is the size of the characterset.
+        // where, p is the size of the character set.
         // With modding, the hash rolling equation changes a little but the idea remains the same.
         // hash[b,c,d] = ((hash[a,b,c] - 'a'.<max modded power of p>) * p + 'd'.p^0) % q
         // where, q is the mod divisor.
@@ -82,12 +82,12 @@ class SinglePatternSearchSolutionWithMod {
    * Returns the hash of the substring of the given text between the given bounds.
    *
    * <p>For a non-modded case, the following would be the hash of a string 'abc':<br>
-   * hash[a,b,c] = 'a'.p^2 + 'b'.p^1 + 'c'.p^0 where, p is the size of the characterset.
+   * hash[a,b,c] = 'a'.p^2 + 'b'.p^1 + 'c'.p^0 where, p is the size of the character set.
    *
    * <p>But the above could very easily exceed the integer limit in Java. To work around that
    * problem, we mod every intermediate hash and use that to calculate the next iteration's hash.
    *
-   * <p>hash = (hash.p + 'new char') % q<br>
+   * <p>hash = (current_hash.p + 'new char') % q<br>
    * where, q is the mod divisor.
    *
    * <p>The 'mod divisor' is suggested to be as large a prime number as possible to avoid hash
@@ -102,10 +102,16 @@ class SinglePatternSearchSolutionWithMod {
     return hash;
   }
 
+  /**
+   * Returns 1 for 'a', 2 for 'b' and so on.
+   */
   private static int getIntValue(char ch) {
     return ch - 'a' + 1;
   }
 
+  /**
+   * Time complexity: O(m) where m is length of the pattern.
+   */
   private static boolean compareStrings(String pattern, String text, int start, int end) {
     for (int i = 0; i < pattern.length(); i++) {
       if (pattern.charAt(i) != text.charAt(start + i)) {
