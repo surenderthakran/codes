@@ -3,6 +3,7 @@
 ##### 1. (Difficulty: 3) [Merge Sort](mergeSort/main.java) Time Complexity: `O(n log(n))`
 ##### 2. (Difficulty: 3) [Quick Sort](quickSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 4) [Rabin-Karp Algorithm](rabinKarp/Main.java)
+##### 4. (Difficulty: 4) [Dijkstra's Algorithm](dijkstra/Main.java)
 
 ### Data Structures
 
