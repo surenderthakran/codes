@@ -19,14 +19,8 @@ class DijkstraHeap {
     // outgoing edges from the node. ex: {n1: [[n2, d1], [n3, d2]], n2: [[n4, d3]]}
     HashMap<Integer, ArrayList<int[]>> graph = new HashMap<>();
     for (int[] edge : edges) {
-      if (!graph.containsKey(edge[0])) {
-        graph.put(edge[0], new ArrayList<int[]>());
-      }
-      if (!graph.containsKey(edge[1])) {
-        graph.put(edge[1], new ArrayList<int[]>());
-      }
-      graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
-      graph.get(edge[1]).add(new int[]{edge[0], edge[2]});
+      graph.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(new int[]{edge[1], edge[2]});
+      graph.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(new int[]{edge[0], edge[2]});
     }
 
     // Contains the shortest distance to every node from the source.
@@ -39,7 +33,7 @@ class DijkstraHeap {
     // It will contain multiple entries for a node since we do not update a node's distance on relaxation,
     // instead we simply add its latest distance while the old entry gets pushed downwards.
     PriorityQueue<int[]> unvisitedNodesHeap = new PriorityQueue<>(
-        (edge1, edge2) -> edge1[1] - edge2[1]);
+        (edge1, edge2) -> Integer.compare(edge1[1], edge2[1]));
 
     // Set distance from source node to itself as 0.
     unvisitedNodesHeap.add(new int[]{sourceNode, 0});
