@@ -29,6 +29,7 @@
 ##### 14. (Difficulty: 4) [Find all permutations of a small string which exist in a larger string.](findNumberOfSmallStringPermutationsInLargeString/Main.java)
 ##### 15. (Difficulty: 4) [Given an array of integers and a target integer, check if any subset elements of the array can add up to the target. (Subset Problem)](subsetWithGivenSumInArray/Main.java)
 ##### 16. (Difficulty: 4) [0-1 Knapsack problem](zeroOneKnapsackProblem/Main.java)
+##### 17. (Difficulty: 3) [Dutch National Flag (DNF) Sort](dutchNationalFlagSort/Main.java)
 
 ### Design
 
