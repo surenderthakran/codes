@@ -12,6 +12,10 @@ class Main {
       assert Arrays.equals(DNF.sort(new int[]{2, 1, 0, 1, 0, 0, 0, 1, 2, 1, 0, 2, 2, 1, 0}),
           new int[]{0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2});
 
+      assert Arrays.equals(DNF.sort(new int[]{2, 1}), new int[]{1, 2});
+
+      assert Arrays.equals(DNF.sort(new int[]{0, 2, 1}), new int[]{0, 1, 2});
+
       System.out.println("All Assertions Succeeded!");
     } else {
       System.out.println("Assertions not enabled! Results not verified!");

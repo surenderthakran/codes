@@ -8,10 +8,13 @@ class DNF {
     }
 
     int low = 0;
-    int mid = 1;
+    int mid = 0;
     int high = nums.length - 1;
     while (mid < high) {
-      if (nums[mid] == 0) {
+      if (low == mid && nums[low] == 0) {
+        low++;
+        mid++;
+      } else if (nums[mid] == 0) {
         swap(nums, low, mid);
         low++;
       } else if (nums[mid] == 1) {
