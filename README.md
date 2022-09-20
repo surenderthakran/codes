@@ -4,11 +4,11 @@
 ##### 2. (Difficulty: 3) [Quick Sort](quickSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 4) [Rabin-Karp Algorithm](rabinKarp/Main.java)
 ##### 4. (Difficulty: 4) [Dijkstra's Algorithm](dijkstra/Main.java)
-##### 5. (Difficulty: 3) [Kadane's Algorithm](kadane/Main.java)
+##### 5. (Difficulty: 3) [Kadane's Algorithm](kadane/Main.java) Time Complexity: `O(n)`
 
 ### Data Structures
 
-##### 1. (Difficulty: 2) [Binary Search Tree](binarySearchTree/main.java)
+##### 1. (Difficulty: 2) [Binary Search Tree](binarySearchTree/Main.java)
 ##### 2. (Difficulty: 2) [Trie](trie/Main.java)
 ##### 3. (Difficulty: 3) [Max Heap](maxHeap/Main.java)
 
