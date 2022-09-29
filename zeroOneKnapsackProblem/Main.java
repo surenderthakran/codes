@@ -14,7 +14,10 @@ class Main {
 
     if (assertsEnabled) {
       assert Solution.getMaxValue(new int[] {10, 40, 30, 50}, new int[] {5, 4, 6, 3}, 10) == 90;
+      assert Solution2.getMaxValue(new int[] {10, 40, 30, 50}, new int[] {5, 4, 6, 3}, 10) == 90;
+
       assert Solution.getMaxValue(new int[] {60, 100, 120}, new int[] {10, 20, 30}, 50) == 220;
+      assert Solution2.getMaxValue(new int[] {60, 100, 120}, new int[] {10, 20, 30}, 50) == 220;
 
       System.out.println("All Assertions Succeeded!");
     } else {

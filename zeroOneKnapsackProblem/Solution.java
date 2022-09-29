@@ -6,6 +6,11 @@ package com.surenderthakran.codes.zerooneknapsackproblem;
  * the number of columns are (max knapsack weight capacity + 1).<br>
  * Each cell {i, j} in the table holds the maximum value that can be added in the knapsack of
  * capacity `j` if the first `i` items were considered for inclusion.<br>
+ *
+ * Complexities:
+ * Time complexity: O(n.w)
+ * Space complexity: O(n.w)
+ * where n is the number of items and w is the maxWeight.
  */
 class Solution {
   static int getMaxValue(int[] values, int[] weights, int maxWeight) {
