@@ -30,7 +30,11 @@ public class BinarySearchTree {
       Node current = this.root;
 
       while (true) {
-        if (value <= current.value) {
+        if (value == current.value) {
+          node.left = current.left;
+          current.left = node;
+          break;
+        } else if (value < current.value) {
           if (current.left != null) {
             // New node will be added in the tree which has current.left as root.
             current = current.left;
