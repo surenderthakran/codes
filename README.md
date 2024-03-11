@@ -9,8 +9,9 @@
 ### Data Structures
 
 ##### 1. (Difficulty: 2) [Binary Search Tree](binarySearchTree/Main.java)
-##### 2. (Difficulty: 2) [Trie](trie/Main.java)
-##### 3. (Difficulty: 3) [Max Heap](maxHeap/Main.java)
+##### 2. (Difficulty: 3) [Optimal Binary Search Tree](optimalBinarySearchTree/Main.java)
+##### 3. (Difficulty: 2) [Trie](trie/Main.java)
+##### 4. (Difficulty: 3) [Max Heap](maxHeap/Main.java)
 
 ### Problems
 

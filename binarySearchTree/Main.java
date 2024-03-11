@@ -20,7 +20,7 @@ public class Main {
 
       System.out.println("All Assertions Succeeded!");
     } else {
-      System.out.println("Asserions not enabled! Results not verified!");
+      System.out.println("Assertions not enabled! Results not verified!");
     }
   }
 
