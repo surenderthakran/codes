@@ -44,7 +44,7 @@ import java.util.Map;
  * Ref: https://www.javatpoint.com/optimal-binary-search-tree,
  * https://www.geeksforgeeks.org/optimal-binary-search-tree-dp-24/
  */
-class Solution1 {
+class OnlySuccessfulSearchSolution {
 
   public static int optimalSearchCost(int[] keys, int[] freq) {
     // Since the input array can be unsorted, we will first sort it
@@ -63,7 +63,7 @@ class Solution1 {
     // A particular trio of parent, left and right child and re-occur during the program's run,
     // however their OC will be same each time regardless of at which level they occur since OC is
     // also computed assuming that the parent is at the root.
-    // Hence we will use the memoization technique store their result so as to avoid re-computation.
+    // Hence we will use the memoization technique to store their result so as to avoid re-computation.
     Map<String, Integer> memo = new HashMap<>();
 
     return optimalCost(freq, 0, freq.length - 1, memo);
