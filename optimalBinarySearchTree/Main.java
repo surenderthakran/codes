@@ -8,10 +8,11 @@ public class Main {
 
     if (assertEnabled) {
       onlySuccesfulSearchTest();
+      successfulAndUnsuccessfulSearchTest();
 
       System.out.println("All Assertions Succeeded!");
     } else {
-      System.out.println("Asserions not enabled! Results not verified!");
+      System.out.println("Assertions not enabled! Results not verified!");
     }
   }
 
@@ -35,5 +36,24 @@ public class Main {
     keys = new int[] {10, 12, 20};
     freq = new int[] {34, 8, 50};
     assert OnlySuccessfulSearchSolution.optimalSearchCost(keys, freq) == 142;
+  }
+
+  /**
+   * Given an array of elements in a BST, their corresponding search frequencies and 
+   * the search frequency of all elements in between those elements which will constitute as unsuccessful searches, 
+   * an Optimal Binary Search Tree is a tree with a BST organization with minimum search cost.
+   */
+  private static void successfulAndUnsuccessfulSearchTest() {
+    int[] keys = new int[] {10, 20};
+    double[] sFreq = new double[] {3, 3};
+    double[] fFreq = new double[] {2, 3, 1};
+    double result = SuccessfulAndUnsuccessfulSearchSolution.optimalSearchCost(keys, sFreq, fFreq);
+    assert result == 19;
+
+    keys = new int[] {10, 20, 30, 40};
+    sFreq = new double[] {3, 3, 1, 1};
+    fFreq = new double[] {2, 3, 1, 1, 1};
+    result = SuccessfulAndUnsuccessfulSearchSolution.optimalSearchCost(keys, sFreq, fFreq);
+    assert result == 32;
   }
 }
