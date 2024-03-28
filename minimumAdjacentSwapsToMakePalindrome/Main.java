@@ -1,4 +1,4 @@
-package com.surenderthakran.codes.minimumSwapsToMakePalindrome;
+package com.surenderthakran.codes.minimumAdjacentSwapsToMakePalindrome;
 
 // https://molchevskyi.medium.com/best-solutions-for-microsoft-interview-tasks-min-swaps-to-make-palindrome-e931689f8cae
 
