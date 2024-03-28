@@ -32,6 +32,7 @@
 ##### 15. (Difficulty: 4) [Given an array of integers and a target integer, check if any subset elements of the array can add up to the target. (Subset Problem)](subsetWithGivenSumInArray/Main.java)
 ##### 16. (Difficulty: 4) [0-1 Knapsack problem](zeroOneKnapsackProblem/Main.java)
 ##### 17. (Difficulty: 3) [Dutch National Flag (DNF) Sort](dutchNationalFlagSort/Main.java)
+##### 18. (Difficulty: 3) [Count minimum adjacent swaps required to make a palindrome](minimumSwapsToMakePalindrome/Main.java)
 
 ### Design
 
