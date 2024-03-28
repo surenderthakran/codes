@@ -1,6 +1,6 @@
 ### Algorithms
 
-##### 1. (Difficulty: 3) [Merge Sort](mergeSort/main.java) Time Complexity: `O(n log(n))`
+##### 1. (Difficulty: 3) [Merge Sort](mergeSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 2. (Difficulty: 3) [Quick Sort](quickSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 4) [Rabin-Karp Algorithm](rabinKarp/Main.java)
 ##### 4. (Difficulty: 4) [Dijkstra's Algorithm](dijkstra/Main.java)
@@ -19,9 +19,9 @@
 ##### 2. (Difficulty: 3) [Alphabetize (sort alphabetically) lowercase characters in a given string.](alphabetizeLowercaseChars/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 3) [Given two arrays of keypresses, determine if they output same printable string.](compareKeypressArrays/Main.java) Time Complexity: `O(n)`
 ##### 4. (Difficulty: 2) [Hexadecimal string addition.](hexadecimalAddition/Main.java) Time Complexity: `O(n)`
-##### 5. (Difficulty: 3) [Rearrange given characters so that same character does not occurs more than once in a given window.](separateSameCharactersByWindow/main.java) Time Complexity: `O(n)`
+##### 5. (Difficulty: 3) [Rearrange given characters so that same character does not occur more than once in a given window.](separateSameCharactersByWindow/Main.java) Time Complexity: `O(n)`
 ##### 6. (Difficulty: 3) [Search a number in a sorted circular rotated array.](sortedRotatedArraySearch/main.java)
-##### 7. (Difficulty: 3) [Pending - Swap two bits in a given unsigned long integer.](swapBitsInUnsignedLong/main.java)
+##### 7. (Difficulty: 3) [Pending - Swap two bits in a given unsigned long integer.](swapBitsInUnsignedLong/Main.java)
 ##### 8. (Difficulty: 3) [Count the number of islands in a 2d grid.](numberOfIslands/main.java)
 ##### 9. (Difficulty: 4) [Find words whose number representation are substring of a given number.](findWordsInNumber/Main.java)
 ##### 10. (Difficulty: 3) [Given a list of coordinates in a 2D plane, count number of rectangles that can be created whose edges are aligned to the two axes.](countallrectanglesalignedtoaxes/Main.java)

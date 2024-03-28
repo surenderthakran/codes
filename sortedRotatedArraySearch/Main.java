@@ -1,4 +1,6 @@
-/**
+package com.surenderthakran.codes.sortedRotatedArraySearch;
+
+/*
  * Given a rotated sorted array, find the index of a given element.
  *
  * The method used in this solution is:

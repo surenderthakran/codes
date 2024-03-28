@@ -1,4 +1,6 @@
-/**
+package com.surenderthakran.codes.separateSameCharactersByWindow;
+
+/*
  * Given a set of characters, rearrange them so that same character does not occurs in a given
  * window n.
  * Note: A set can have multiple such rearrangements.
