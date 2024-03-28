@@ -42,6 +42,10 @@ class Main {
     }
   }
 
+  /**
+   * Time complexity; O(n^2)
+   * Space complexity: O(n)
+   */
   private static int getAdjacentSwapsToMakePalindrome(String str) {
     if (str.length() < 2) {
       return 0;
@@ -52,6 +56,8 @@ class Main {
       return -1;
     }
 
+    // Time complexity: O(n)
+    // Space complexity: O(n)
     char[] chars = str.toCharArray();
 
     int swapCount = 0;
@@ -59,6 +65,11 @@ class Main {
     // start matching the input string's characters from both ends.
     int start = 0;
     int end = chars.length - 1;
+
+    // This loops n/2 times. And each time it traverses n-2, n-4, n-6 ... 1 characters.
+    // Hence, total cost of this loop is (n-2) + (n-4) + ... + 1 = n(n-1)/4
+    // Time complexity: O(n(n-1)/4) => O(n^2)
+    // Space complexity: O(1) since no extra space is used.
     while (start < end) {
 
       // If characters at the both pointers are same than do nothing and move pointers inwards.
@@ -100,12 +111,20 @@ class Main {
     return swapCount;
   }
 
+  /**
+   * Time complexity: O(1)
+   * Space complexity: O(1)
+   */
   private static void swap(char[] chars, int first, int second) {
     char tmp = chars[first];
     chars[first] = chars[second];
     chars[second] = tmp;
   }
 
+  /**
+   * Time complexity: O(n)
+   * Space complexity: O(n)
+   */
   private static boolean isShuffledPalindrome(String str) {
     // Create frequency map of characters.
     Map<Character, Integer> freqMap = new HashMap<>();
