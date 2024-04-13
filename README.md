@@ -30,6 +30,7 @@
 ##### 8. (Difficulty: 3) [Determine if an input string can be segmented into words from a given list of words.](segmentStringIntoDictionaryWords/Main.java)
 ##### 9. (Difficulty: 3) [Given a number string, find the number of ways it can be converted to english alphabet words for a one to one mapping between alphabets and numbers.](numberstringtowords/Main.java)
 ##### 10. (Difficulty: 3) [Count minimum adjacent swaps required to make a palindrome](minimumAdjacentSwapsToMakePalindrome/Main.java)
+##### 11. (Difficulty: 3) [Find minimum possible amplitude of a given integer array](findMinimumAmplitude/Main.java)
 
 ### Trees
 ##### 1. (Difficulty: 2) [Invert/Flip/Mirror a binary tree](invertBinaryTree/Main.java)
