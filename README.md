@@ -50,3 +50,7 @@
 ## Design
 
 ##### 1. (Difficulty: 2) [Design class with insert, random peek and random delete capabilities.](classWithInsertRandomPeekAndDeleteCapabilities/main.java)
+
+partitionArrayIntoSubsets
+peakPopulationYearFromBirthAndDeathYears
+swapBitsInUnsignedLong

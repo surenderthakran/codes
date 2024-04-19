@@ -2,23 +2,26 @@
  * Trie is a tree like data structure used to better structure a dictonary (set of words) so as to
  * make it easier to search for a given word. Other applications include auto complete, prefix based
  * search, spell check etc. Also, explore Aho-Corasick algorithm which is like an advanced Trie.
- *
- * <p>Complexity: Word Insertion: O(n) Search: O(n)
+ * <p>
+ * Time Complexity:
+ *   Word Insertion: O(n)
+ *   Search: O(n)
+ *   where n is the size of the word.
  */
 package com.surenderthakran.codes.trie;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 
 class Trie {
 
-  private Node root;
+  private final Node root;
 
   Trie() {
     root = new Node();
   }
 
-  void insert(ArrayList<String> words) {
+  void insert(List<String> words) {
     words.stream()
         .filter(word -> !word.isEmpty()) // Filter out empty words.
         .forEach(
@@ -34,7 +37,7 @@ class Trie {
                 currentNode.addChild(newNode);
                 currentNode = newNode;
               }
-              currentNode.setIsLast(true);
+              currentNode.isLast = true;
             });
   }
 
@@ -48,10 +51,31 @@ class Trie {
       currentNode = currentNode.getChild(ch);
     }
 
-    return currentNode.isLast();
+    return currentNode.isLast;
   }
 
-  boolean delete(String word) {
+  boolean containsRecursively(String word) {
+    if (word.isEmpty()) {
+      return false;
+    }
+
+    return containsRecursivelyHelper(word, 0, this.root);
+  }
+
+  private boolean containsRecursivelyHelper(String word, int currentIdx, Node node) {
+    if (currentIdx == word.length()) {
+      return node.isLast;
+    }
+
+    if (!node.hasChild(word.charAt(currentIdx))) {
+      return false;
+    }
+
+    Node child = node.getChild(word.charAt(currentIdx));
+    return containsRecursivelyHelper(word, currentIdx + 1, child);
+  }
+
+  boolean deleteIteratively(String word) {
     Node currentNode = this.root;
     for (char ch : word.toCharArray()) {
       if (!currentNode.hasChild(ch)) {
@@ -62,16 +86,16 @@ class Trie {
     }
 
     // Return if the node containing the last character of the given word is not the last node of an
-    // existing word in the trie dictionary. Meaning that the word to delete does not exists in the
+    // existing word in the trie dictionary. Meaning that the word to delete does not exist in the
     // trie.
-    if (!currentNode.isLast()) {
+    if (!currentNode.isLast) {
       return false;
     }
 
-    currentNode.setIsLast(false);
+    currentNode.isLast = false;
 
-    while (!currentNode.isLast() && !currentNode.hasChildren()) {
-      Node parent = currentNode.getParent();
+    while (!currentNode.isLast && !currentNode.hasChildren()) {
+      Node parent = currentNode.parent;
       parent.removeChild(currentNode);
       currentNode = parent;
     }
@@ -79,10 +103,40 @@ class Trie {
     return true;
   }
 
-  private class Node {
+  void deleteRecursively(String word) {
+    if (word.isEmpty()) {
+      return;
+    }
 
-    private Character value;
-    private HashMap<Character, Node> children;
+    deleteRecursively(word, 0, this.root);
+  }
+
+  private boolean deleteRecursively(String word, int startFrom, Node node) {
+    if (startFrom == word.length()) {
+      if (node.isLast) {
+        node.isLast = false;
+        return !node.hasChildren();
+      }
+      return false;
+    }
+
+    if (node.hasChild(word.charAt(startFrom))) {
+      Node childNode = node.getChild(word.charAt(startFrom));
+      boolean deleteChildNode = deleteRecursively(word, startFrom + 1, childNode);
+      if (deleteChildNode) {
+        node.removeChild(childNode);
+        return !node.isLast && !node.hasChildren();
+      }
+      return false;
+    }
+
+    return false;
+  }
+
+  private static class Node {
+
+    private final Character value;
+    private final HashMap<Character, Node> children;
     private Node parent;
     private boolean isLast;
 
@@ -96,7 +150,7 @@ class Trie {
 
     private Node(Character value, boolean isLast) {
       this.value = value;
-      this.children = new HashMap<Character, Node>();
+      this.children = new HashMap<>();
       this.parent = null;
       this.isLast = isLast;
     }
@@ -127,23 +181,11 @@ class Trie {
       return !this.children.isEmpty();
     }
 
-    private Node getParent() {
-      return this.parent;
-    }
-
-    private boolean isLast() {
-      return this.isLast;
-    }
-
-    private void setIsLast(boolean isLast) {
-      this.isLast = isLast;
-    }
-
     @Override
     public String toString() {
       return String.format(
-          "Value: %s, Children: %s, Parent: %s, isLast: %s",
-          this.value, this.children.keySet(), this.parent.getValue(), this.isLast);
+          "{Value: %s, Children: %s, Parent: %s, isLast: %s}",
+          this.value, this.children.keySet(), this.parent != null ? this.parent.getValue() : null, this.isLast);
     }
   }
 }

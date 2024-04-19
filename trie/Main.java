@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Main {
+
   public static void main(String[] args) {
     boolean assertEnabled = false;
     assert assertEnabled = true;
@@ -20,7 +21,7 @@ class Main {
   static void testTrie() {
     Trie trie = new Trie();
 
-    ArrayList<String> words = new ArrayList<>();
+    List<String> words = new ArrayList<>();
     words.add("abc");
     words.add("abd");
     words.add("abcd");
@@ -32,11 +33,16 @@ class Main {
 
     trie.insert(words);
 
-    assert trie.contains("abcd") == true;
-    assert trie.contains("bbcd") == false;
+    assert trie.contains("abcd");
+    assert !trie.contains("bbcd");
 
-    assert trie.delete("abcd") == true;
+    assert trie.containsRecursively("abcd");
+    assert !trie.containsRecursively("bbcd");
 
-    assert trie.contains("abcd") == false;
+    assert trie.deleteIteratively("abcd");
+    assert !trie.contains("abcd");
+
+    trie.deleteRecursively("babc");
+    assert !trie.contains("babc");
   }
 }
