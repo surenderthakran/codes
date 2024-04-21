@@ -3,7 +3,7 @@
 ##### 1. (Difficulty: 3) [Merge Sort](mergeSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 2. (Difficulty: 3) [Quick Sort](quickSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 3) [Heap Sort](heapsort/Main.java) Time Complexity: `O(n log(n))`
-##### 3. (Difficulty: 4) [Rabin-Karp Algorithm](rabinKarp/Main.java)
+##### 3. (Difficulty: 4) [Rabin-Karp Algorithm](rabinkarp/Main.java)
 ##### 4. (Difficulty: 4) [Dijkstra's Algorithm](dijkstra/Main.java)
 ##### 5. (Difficulty: 3) [Kadane's Algorithm](kadane/Main.java) Time Complexity: `O(n)`
 
@@ -50,7 +50,3 @@
 ## Design
 
 ##### 1. (Difficulty: 2) [Design class with insert, random peek and random delete capabilities.](classWithInsertRandomPeekAndDeleteCapabilities/main.java)
-
-partitionArrayIntoSubsets
-peakPopulationYearFromBirthAndDeathYears
-swapBitsInUnsignedLong
