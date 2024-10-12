@@ -4,8 +4,9 @@
 ##### 2. (Difficulty: 3) [Quick Sort](quickSort/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 3) [Heap Sort](heapsort/Main.java) Time Complexity: `O(n log(n))`
 ##### 3. (Difficulty: 4) [Rabin-Karp Algorithm](rabinkarp/Main.java)
-##### 4. (Difficulty: 4) [Dijkstra's Algorithm](dijkstra/Main.java)
-##### 5. (Difficulty: 3) [Kadane's Algorithm](kadane/Main.java) Time Complexity: `O(n)`
+##### 4. (Difficulty: 5) [Knuth-Morris-Pratt(KMP) Algorithm](kmp/Main.java)
+##### 5. (Difficulty: 4) [Dijkstra's Algorithm](dijkstra/Main.java)
+##### 6. (Difficulty: 3) [Kadane's Algorithm](kadane/Main.java) Time Complexity: `O(n)`
 
 ## Data Structures
 
